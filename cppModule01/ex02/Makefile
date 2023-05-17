@@ -1,10 +1,9 @@
-NAME	= test
+NAME	= ptr
 
 CC		= g++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
-SRC		= Account.cpp \
-		  tests.cpp
+SRC		= main.cpp \
 
 OBJ		= $(SRC:.cpp=.o)
 

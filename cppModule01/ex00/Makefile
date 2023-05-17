@@ -1,10 +1,12 @@
-NAME	= test
+NAME	= zombie
 
 CC		= g++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
-SRC		= Account.cpp \
-		  tests.cpp
+SRC		= main.cpp \
+		  newZombie.cpp \
+		  randomChump.cpp \
+		  Zombie.cpp 
 
 OBJ		= $(SRC:.cpp=.o)
 
