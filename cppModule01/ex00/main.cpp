@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 19:38:04 by stunca            #+#    #+#             */
+/*   Updated: 2023/05/19 19:38:05 by stunca           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int main()
 {
     /*
-    //HEAP
+    //HEAP FIFO
     Zombie *z1 = newZombie("sefa");
     z1->announce();
     Zombie *z2 = newZombie("zombicik");
     z2->announce();
 
-    //STACK
+    //STACK LIFO
     randomChump("zom1");
     randomChump("zom2");
     
