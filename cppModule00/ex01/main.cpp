@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 18:42:48 by stunca            #+#    #+#             */
+/*   Updated: 2023/05/19 18:42:52 by stunca           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -36,7 +48,7 @@ int main()
         std::cin.clear();
         std::cout << "📖:";
         std::getline(std::cin,input);
-        if(std::cin.eof() || !input.compare("EXIT"))
+        if(std::cin.eof() || !input.compare("EXIT")) // eof-> ctrl+d/ctrl+c
             pb1.exitCommand();
         else if(!input.compare("ADD"))
             pb1.addCommand();

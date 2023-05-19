@@ -1,12 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 18:36:32 by stunca            #+#    #+#             */
+/*   Updated: 2023/05/19 18:42:44 by stunca           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 
 /*
 str.empty()
 This function checks whether the string is empty or not. Function returns a Boolean value either true or false.
-
 -
-
 std::flush
 
 Belleğe almadan direkt yazmayı sağlar.
@@ -69,9 +79,7 @@ std::string Contact::getInput(std::string info)const
                 newInput[0] = toupper(newInput[0]);
             break;
         }
-        std::cout << "Input must not be empty" << std::flush;
-        std::cout << std::endl;
-        //std::flush yerine std::endl; dene
+        std::cout << "Input must not be empty" << std::endl;
     }
     return newInput;
 }

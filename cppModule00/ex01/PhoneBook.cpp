@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 18:42:56 by stunca            #+#    #+#             */
+/*   Updated: 2023/05/19 18:42:57 by stunca           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(){}
@@ -41,7 +53,7 @@ void PhoneBook::searchCommand()const
         std::getline(std::cin, input);
         num = atoi(input.c_str()); // atoi'nin return değerine cast yapar
         std::cout << "Entered num: " << input << std::endl;
-        if( std::cin.good() &&  (input.length() == 1) && ((num >= 0 && num < 8) || (input.compare("0") == 0 && num == 0)))
+        if( std::cin.good() &&  (input.length() == 1) && ((num > 0 && num < 8) || (input.compare("0") == 0 && num == 0)))
         {
             break;
         }
