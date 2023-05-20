@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:09:44 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 19:09:45 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:42:05 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,17 @@ void	Account::_displayTimestamp( void ) {
 		std::cout << "0";
 	std::cout << timeInfo->tm_sec << "] ";
 }
+/*
+std::time_t rawTime;: std::time_t türünde rawTime adında bir değişken tanımlanır. std::time_t genellikle zamanı temsil etmek için kullanılan bir tamsayı türüdür. Bu değişken, zaman bilgilerini depolamak için kullanılacak.
+
+struct tm *timeInfo;: struct tm türünde timeInfo adında bir işaretçi tanımlanır. struct tm zaman bilgilerini tutan bir yapıdır. Bu işaretçi, zaman bilgilerine erişmek ve düzenlemek için kullanılacak.
+
+std::time(&rawTime);: std::time() fonksiyonu çağrılarak geçerli zaman alınır ve rawTime değişkenine atanır. Bu fonksiyon, sistem saati tarafından temsil edilen zamanı saniye cinsinden döndürür.
+
+timeInfo = localtime(&rawTime);: localtime() fonksiyonu çağrılarak rawTime değişkeninin değeri yerel zaman dilimine göre ayrıştırılır ve timeInfo işaretçisine atanır. localtime() fonksiyonu, struct tm yapısını kullanarak tarih, saat, gün, ay ve yıl gibi zaman bileşenlerini elde etmemizi sağlar. Bu işlev, geçerli zamanı yerel zaman dilimine çevirir ve işaretçi olarak döndürür.
+
+Bu kod örneği, rawTime değişkeni aracılığıyla sistem saatinden geçerli zamanı alır ve timeInfo işaretçisi aracılığıyla bu zamanın ayrıntılarına erişim sağlar.
+*/
 
 int Account::checkAmount(void)const
 {

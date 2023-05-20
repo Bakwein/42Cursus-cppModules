@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:15:03 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 18:15:03 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:51:43 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class mega
         void set(int);
 };
 
-
+//::->Scope oparetor
 char mega::get(){return a;}
 void mega::set(int a)
 {

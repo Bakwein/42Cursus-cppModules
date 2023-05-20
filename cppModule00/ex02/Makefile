@@ -6,7 +6,7 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:09:54 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 19:09:55 by stunca           ###   ########.fr        #
+#    Updated: 2023/05/20 15:45:14 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ clean:
 fclean: clean
 	@echo "$(RED)🔜Deleting NAME🔜 $(YELLOW)"
 	rm -f $(NAME)
-	@echo "$(RED)🗑️ NAME Deleted🗑️ $(YELLOW)"
+	rm -f *.log
+	@echo "$(RED)🗑️ NAME and *.log Deleted🗑️ $(YELLOW)"
 
 re: fclean all
 

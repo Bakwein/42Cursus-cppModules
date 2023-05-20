@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:42:48 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 18:42:52 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:26:28 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int main()
     PhoneBook pb1;
     std::string input;
 
-    std::cout << "ENTER ADD, SEARCH or EXIT !" << std::endl;
     while(1)
     {
         std::cin.clear();
+        std::cout << CYAN<<"ENTER ADD, SEARCH or EXIT !" << END << std::endl;
         std::cout << "📖:";
         std::getline(std::cin,input);
         if(std::cin.eof() || !input.compare("EXIT")) // eof-> ctrl+d/ctrl+c
@@ -56,7 +56,7 @@ int main()
             pb1.searchCommand();
         else
         {
-            std::cout << "You entered wrong word! Please use ADD,SEARCH or EXIT" << std::endl;
+            std::cout << RED<<"You entered wrong word! Please use ADD,SEARCH or EXIT" << END << std::endl;
 
         }
     }

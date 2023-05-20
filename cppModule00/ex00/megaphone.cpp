@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:14:33 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 18:14:36 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:48:01 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
             x = 0;
             while(argv[y][x])
             {
-                if(argv[y][x] >= 97 && argv[y][x] <= 122)
+                if(argv[y][x] >= 97 && argv[y][x] <= 122)//a-z
                 {
                     argv[y][x] -= 32;
                 }

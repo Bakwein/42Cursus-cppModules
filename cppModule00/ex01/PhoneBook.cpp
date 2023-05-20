@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:42:56 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 18:42:57 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:24:48 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PhoneBook::~PhoneBook(){}
 
 void PhoneBook::exitCommand()const
 {
-    std::cout << "Exit Command Detected, Shutting down!" << std::endl;
+    std::cout << RED<<"Exit Command Detected, Shutting down!" << END<< std::endl;
     exit(0);
 }
 
@@ -53,11 +53,11 @@ void PhoneBook::searchCommand()const
         std::getline(std::cin, input);
         num = atoi(input.c_str()); // atoi'nin return değerine cast yapar
         std::cout << "Entered num: " << input << std::endl;
-        if( std::cin.good() &&  (input.length() == 1) && ((num > 0 && num < 8) || (input.compare("0") == 0 && num == 0)))
+        if( std::cin.good() &&  (input.length() == 1) && ((num >= 0 && num < 8) ))
         {
             break;
         }
-        std::cin.clear();
+        std::cin.clear(); // he cin.clear() clears the error flag on cin
         std::cout << "You must be enter between 0-7 value!" << std::endl;
 
     }

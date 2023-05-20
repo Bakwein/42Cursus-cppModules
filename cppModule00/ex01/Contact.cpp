@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 18:36:32 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 18:42:44 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:14:09 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Contact::setNick(std::string nick){this->nick=nick;}
 void Contact::setTel(std::string tel){this->tel=tel;}
 void Contact::setDarkestSecret(std::string darkestSecret){this->darkestSecret=darkestSecret;}
 
-
+//istream& getline(istream& input_stream, string& output, char delim);
 std::string Contact::getInput(std::string info)const
 {
     std::string newInput;
@@ -125,7 +125,8 @@ void Contact::getContact()const
 {
     if(this->firstname.empty() || this->lastname.empty() || this->nick.empty() || this->tel.empty() || this->darkestSecret.empty())
         return ;
-    std::cout << "|" << std::setw(10) << id << std::flush;
+    //std::left,std::right
+    std::cout << "|" << std::setw(10)  << id << std::flush;
     std::cout << "|" << std::setw(10) << this->getLimited(this->firstname)<< std::flush;
     std::cout << "|" << std::setw(10) << this->getLimited(this->lastname)<< std::flush;
     std::cout << "|" << std::setw(10) << this->getLimited(this->nick)<< std::flush;
