@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 23:46:39 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/20 23:46:40 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/21 17:56:02 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,10 @@
 #include <cmath>// just roundf() allowed.
 #include <fstream>
 
-/**
- * @brief 
- * 
- * LHS -> Left Hand Side
- * RHS -> Right Hand Side
- * 
- * OPERATORS:
- * @link https://en.cppreference.com/w/cpp/language/operators
- * 
- * COMPARISON:
- * @link https://en.cppreference.com/w/cpp/language/operator_comparison
- * ARITHMETIC:
- * @link https://en.cppreference.com/w/cpp/language/operator_arithmetic
- * INCREMENT: DECREMENT:
- * @link https://learn.microsoft.com/tr-tr/cpp/cpp/increment-and-decrement-operator-overloading-cpp?view=msvc-170
- * @link https://en.cppreference.com/w/cpp/language/operator_incdec
- */
+ 
+// LHS -> Left Hand Side
+// RHS -> Right Hand Side
+ 
 class	Fixed
 {
 	private:

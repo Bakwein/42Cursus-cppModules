@@ -6,16 +6,12 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 23:46:53 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/20 23:46:53 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/21 17:59:42 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/**
- * @brief Construct a new Fixed::Fixed object
- * Default Constructor.
- */
 Fixed::Fixed( void ) : _fixPoint(0)
 {
 	// std::cout << "Default constructor called" << std::flush << std::endl;
@@ -35,12 +31,6 @@ Fixed::Fixed( const float numberFloat) : _fixPoint(std::roundf(\
 	// this->_fixPoint = numberFloat;
 }
 
-/**
- * @brief Copy Construct a new Fixed::Fixed object
- * Copy Constructor.
- * @link https://www.geeksforgeeks.org/copy-constructor-in-cpp/
- * @param old_class 
- */
 Fixed::Fixed( const Fixed &old_class)
 {
 	// std::cout << "Copy constructor called" << std::flush << std::endl;
@@ -48,13 +38,6 @@ Fixed::Fixed( const Fixed &old_class)
 	// this->_fixPoint = old_class._fixPoint;
 }
 
-/**
- * @brief Copy assignment a new Fixed::Fixed object
- * Copy assignment operator.
- * @link https://en.cppreference.com/w/cpp/language/copy_assignment
- * @param old_class 
- * @return Fixed& 
- */
 Fixed	&Fixed::operator=( const Fixed &old_class )
 {
 	// std::cout << "Copy assignment operator called" << std::flush << std::endl;

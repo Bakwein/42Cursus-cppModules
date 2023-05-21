@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:51:37 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/19 19:51:38 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/21 00:01:12 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class HumanB
 {
     std::string name;
-    Weapon *w; 
+    Weapon *w;
     public:
         HumanB(std::string name);
         ~HumanB();

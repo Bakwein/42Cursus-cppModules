@@ -13,8 +13,8 @@ Fixed::Fixed(const Fixed &old)
 }
 
 Fixed::Fixed(const int intNum) : fixPoint(intNum << fractBit)
-{
-    std::cout << "Int constructor called" << std::endl;
+{  
+         std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float floatNum) : fixPoint(std::roundf(floatNum * (1 << fractBit)))
