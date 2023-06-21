@@ -5,28 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:12:17 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:12:18 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:35:23 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:35:23 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#define ANIMAL_HPP
 
-# include <iostream>
+#include <iostream>
+#include <string>
 
-class Animal
+class Animal 
 {
-	protected:
-		std::string type;
-	public:
-		Animal( void );
-		Animal( std::string name );
-		Animal( const Animal &rhs );
-		virtual ~Animal( void );// Virtual ~Animal Destructor for Colon type can allowing to free.
+ protected:
+  std::string _type;
 
-		std::string		getType( void ) const;
-		virtual void	makeSound( void ) const;// If animals dog or cat have same func(), not calling this func. Calling own self func().
+ public:
+  /* default constructor */
+  Animal();
+
+  /* copy constructor */
+  Animal(Animal const& src);
+
+  /* copy assignment operator */
+  Animal& operator=(Animal const& animal);
+
+  /* destructor */
+  virtual ~Animal();
+
+  /* getter */
+  virtual std::string const& getType() const; 
+
+  virtual void makeSound() const;
 };
 
-#endif // ANIMAL_HPP
+#endif

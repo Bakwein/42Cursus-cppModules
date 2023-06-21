@@ -20,13 +20,13 @@
 
 class Contact
 {
-    int id;
-    std::string firstname;
-    std::string lastname;
-    std::string nick;
-    std::string tel;
-    std::string darkestSecret;
-
+    private:
+        int id;
+        std::string firstname;
+        std::string lastname;
+        std::string nick;
+        std::string tel;
+        std::string darkestSecret;
     public:
         //CONSTRUCTERS
         Contact();

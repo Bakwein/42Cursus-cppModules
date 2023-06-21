@@ -17,8 +17,9 @@
 
 class HumanA
 {
-    std::string name;
-    Weapon &w; //ref olarak aldigimizdan neyi alıyorsak aldığımızı ve artık orada olmadığını düşünürüz
+    private:
+        std::string name;
+        Weapon &w; //ref olarak aldigimizdan neyi alıyorsak aldığımızı ve artık orada olmadığını düşünürüz
     public:
         HumanA(std::string name, Weapon &w);
         ~HumanA();

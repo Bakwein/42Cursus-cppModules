@@ -5,36 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 13:26:55 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/31 13:26:56 by stunca           ###   ########.fr       */
+/*   Created: 2023/05/31 13:27:13 by stunca            #+#    #+#             */
+/*   Updated: 2023/05/31 13:45:42 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-int main()
+
+int	main()
 {
-    // DEFAULT
-    //HIT POINT -> 10
-    // ENERGY POINT -> 10
-    // ATTACK DAMAGE -> 0
-    ClapTrap ct1("Sefa");
-    ClapTrap ct2("Tunca");
+	FragTrap	ft;
+	ScavTrap	st;
+	ClapTrap	ct;
 
-    ct1.setDamage(10);
-    //ct2.beRepaired(20);
-    ct2.godMode();
-    ct1.attack(ct2.getName());
-    ct2.takeDamage(200);
-    ct1.setDamage(ct2.getHitPoint());
-    ct1.attack(ct2.getName());
-    ct1.takeDamage(ct1.getHitPoint());
-    ct1.attack("robot");
-    
-    ClapTrap ct3("xd");
-    ct3.setEnergy(1);
-    ct3.attack("xd2");
-    ct3.attack("xd2");
-    
+	ft.attack("Zombie");
+	ft.highFivesGuys();
+	ft.takeDamage(25);
+	ct.attack("omg");
+	ft.beRepaired(22);
+	ft.highFivesGuys();
+	st.attack("xd");
+	st.guardGate();
+	std::cout << "-----------------" << std::endl;
 
 }

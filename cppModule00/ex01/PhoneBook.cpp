@@ -38,8 +38,7 @@ void PhoneBook::searchCommand()const
     int num;
     std::string input;
 
-    std::cout << "|" << std::setfill(' ') << std::setw(10) << "" << "***** PHONE BOOK *****" << std::setw(11) << "" << "|" << std::flush;
-    std::cout << std::endl;
+    std::cout << "|" << std::setw(10) << "" << "***** PHONE BOOK *****" << std::setw(11) << "" << "|" << std::endl;
     std::cout << "|" << std::setw(10) << "ID" << std::flush;
     std::cout << "|" << std::setw(10) << "FIRST NAME"<< std::flush;
     std::cout << "|" << std::setw(10) << "SURNAME"<< std::flush;
@@ -53,7 +52,7 @@ void PhoneBook::searchCommand()const
         std::getline(std::cin, input);
         num = atoi(input.c_str()); // atoi'nin return değerine cast yapar
         std::cout << "Entered num: " << input << std::endl;
-        if( std::cin.good() &&  (input.length() == 1) && ((num >= 0 && num < 8) ))
+        if( std::cin.good() &&  (input.length() == 1) && (num >= 0 && num < 8) )
         {
             break;
         }

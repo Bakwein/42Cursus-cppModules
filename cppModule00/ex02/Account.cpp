@@ -10,9 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Account.hpp"
 #include <iostream>
 #include <ctime>
+
+
+/*
+./test > new.log
+< new.log cut -d " " -f2 > new_no_timestamps.log
+< 19920104_091532.log cut -d " " -f2 > old_no_timestamps.log
+diff -s old_no_timestamps.log new_no_timestamps.log
+*/
 
 // STATIC INT
 int Account::_nbAccounts = 0;

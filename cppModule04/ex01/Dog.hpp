@@ -5,30 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:21:03 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:21:28 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:30 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:30 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
-# define DOG_HPP
+#define DOG_HPP
 
-// # include <iostream>
-# include "Animal.hpp"
-// # include "Colors.hpp"
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
-	private:
-		Brain	*_brain;
-	public:
-		Dog( void );
-		// Dog( std::string name );
-		// Dog( const Dog &rhs );
-		~Dog( void );
+private:
+    Brain* _brain;
+public:
+    /* default constructor */
+    Dog();
 
-	void	makeSound( void ) const;
-	Brain	&getBrain( void ) const;
+    /* copy constructor */
+    Dog(Dog const& src);
+
+    /* Copy assignment operator */
+    Dog& operator=(Dog const& dog);
+
+    /* destructor */
+    virtual ~Dog();
+
+    /* getter */
+    std::string const& getIdea(int i) const;
+
+    /* setter */
+    virtual void setIdea(int i, std::string const& idea);
+
+    /* public methods */
+    virtual void makeSound() const;
+    virtual void printIdeas() const;
 };
 
-#endif // DOG_HPP
+#endif

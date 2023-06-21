@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 13:17:03 by gsever            #+#    #+#             */
-/*   Updated: 2023/06/03 00:25:29 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:38:12 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:38:12 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
-# define BRAIN_HPP
+#define BRAIN_HPP
 
+#include <string>
 #include <iostream>
 
 class Brain
 {
-	private:
-		std::string _ideas[100];
-	public:
-		Brain( void );
-		// Brain( std::string name );
-		// Brain( const Brain &rhs );
-		~Brain( void );
+private:
+    std::string _ideas[100];
+public:
+    Brain();
+    Brain(Brain const& src);
+    ~Brain();
+    Brain& operator=(Brain const& brain);
+
+    /* Getter */
+    std::string const& getIdea(int index) const;
+
+    /* Setter */
+    void setIdea(int index, std::string const& idea);
 };
 
-#endif // BRAIN_HPP
+#endif

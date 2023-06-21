@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 23:47:02 by stunca            #+#    #+#             */
-/*   Updated: 2023/05/20 23:47:03 by stunca           ###   ########.fr       */
+/*   Updated: 2023/05/31 15:52:27 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,6 @@ int	main()
 	Fixed		a;
 	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-	// {
-	// 	Fixed	c(10);
-	// 	Fixed	cSmall(5);
-
-	// 	std::cout << "[1] -> " << (10 > 5) << std::flush << std::endl;
-	// 	std::cout << "[2] -> " << (10 < 5) << std::flush << std::endl;
-	// 	std::cout << "[3] -> " << (10 >= 5) << std::flush << std::endl;
-	// 	std::cout << "[4] -> " << (10 <= 5) << std::flush << std::endl;
-	// 	std::cout << "[5] -> " << (10 == 5) << std::flush << std::endl;
-	// 	std::cout << "[6] -> " << (10 != 5) << std::flush << std::endl;
-	// }
-	// {
-	// 	Fixed		c(10);
-	// 	Fixed		cSmall(5);
-
-	// 	std::cout << "c: " << c << std::endl;
-	// 	std::cout << "cSmall: " << cSmall << std::endl;
-	// 	std::cout << "cSmall + c: " << cSmall + c << std::endl;
-	// 	std::cout << "cSmall - c: " << cSmall - c << std::endl;
-	// 	std::cout << "cSmall * c: " << cSmall * c << std::endl;
-	// 	std::cout << "cSmall / c: " << cSmall / c << std::endl;
-	// }
-	// {
-	// 	// Fixed		c(10);
-	// 	Fixed		cSmall(5);
-
-	// 	// std::cout << "c: " << c << std::endl;
-	// 	std::cout << "cSmall: " << cSmall << std::endl;
-	// 	std::cout << "cSmall--: " << cSmall-- << std::endl;
-	// 	std::cout << "cSmall: " << cSmall << std::endl;
-	// 	std::cout << "--cSmall: " << --cSmall << std::endl;
-	// }
-
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
@@ -64,10 +31,6 @@ int	main()
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max(a, b) << std::endl;
-	{
-		// std::cout << "max:" << Fixed::max(a, b) << std::endl;
-		// std::cout << "min:" << Fixed::min(a, b) << std::endl;
-	}
 
 	return (0);
 }

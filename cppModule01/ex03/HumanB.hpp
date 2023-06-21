@@ -17,8 +17,9 @@
 
 class HumanB
 {
-    std::string name;
-    Weapon *w;
+    private:
+        std::string name;
+        Weapon *w;
     public:
         HumanB(std::string name);
         ~HumanB();

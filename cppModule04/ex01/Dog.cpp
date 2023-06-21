@@ -5,64 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:21:22 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:22:18 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:25 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:25 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-/**
- * @brief Construct a new Dog:: Dog object
- * 
- * -try-catch-throw(), for memory allocation-
- * @link https://stackoverflow.com/questions/7749066/how-to-catch-out-of-memory-exception-in-c
- * @link https://www.geeksforgeeks.org/if-memory-allocation-using-new-is-failed-in-c-then-how-it-should-be-handled/
- * ------------------------------------------
- */
-Dog::Dog( void ) : Animal("Dog")
+/* Default constructor */
+Dog::Dog()
 {
-	std::cout << "Dog Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
-	try
-	{
-		this->_brain = new Brain();
-		std::cout << "Memory is allocated 'Successfully'!" \
-			<< std::flush << std::endl;
-	}
-	catch(const std::bad_alloc& e)
-	{
-		std::cerr << "Memory Allocation is failed: " << e.what() << "bytes: "\
-			<< sizeof(Brain) << std::flush << std::endl;
-	}
+    std::cout << "Dog default constructor called" << std::endl;
+    _type = "Dog";
+    _brain = new Brain;
+    for(int i = 0; i < 100; i++)
+        setIdea(i, "");
 }
 
-// Dog::Dog( std::string name ) : Animal("Dog")
-// {
-// 	std::cout << "Dog Name Constructor called: " << this->type\
-// 		<< std::flush << std::endl;
-// }
-
-// Dog::Dog( const Dog &rhs ) : Animal(rhs.type)
-// {
-// 	std::cout << "Dog Copy Constructor called: " << this->type\
-// 		<< std::flush << std::endl;
-// }
-
-Dog::~Dog( void )
+/* Copy constructor */
+Dog::Dog(Dog const& src) : Animal(src)
 {
-	std::cout << "Dog Destructor called: " << this->type\
-		<< std::flush << std::endl;
-	delete this->_brain;
+    std::cout << "Cat copy constructor called" << std::endl;
+    _brain = new Brain;
+    *_brain = *src._brain;
 }
 
-void	Dog::makeSound( void ) const
+/* Copy assignment operator */
+Dog& Dog::operator=(Dog const& dog)
 {
-	std::cout << "Hav Hav Hav: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "Cat copy assignment operator called" << std::endl;
+    Animal::operator=(dog);
+    *_brain = *dog._brain;
+    return *this;
 }
 
-Brain	&Dog::getBrain( void ) const
+/* Destructor */
+Dog::~Dog() { std::cout << "Dog destructor called" << std::endl; delete _brain; } // delete sebebi cat'deki ile aynı
+
+/* Getters */
+std::string const& Dog::getIdea(int i) const { return _brain->getIdea(i); }
+
+/* Setter */
+void Dog::setIdea(int i, std::string const& idea) { _brain->setIdea(i, idea); }
+
+/* Public method */ 
+void Dog::makeSound() const { std::cout << "Woof!" << std::endl; }
+
+void Dog::printIdeas() const
 {
-	return (*this->_brain);
+    for(int i = 0; i < 100; i++)
+    {
+        if(getIdea(i) != "")
+            std::cout << i << ". Idea: "<< getIdea(i) << std::endl;
+    }
 }

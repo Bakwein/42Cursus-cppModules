@@ -15,6 +15,7 @@
 /*
 int toupper(int ch);
 
+#include <cctype>
 while(argv[y])
         {
             x = 0;

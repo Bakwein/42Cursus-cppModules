@@ -14,7 +14,7 @@
 
 myStream::myStream(char *filename)
 {
-    std::ifstream file(filename);
+    std::ifstream file(filename); //input file stream - filename adında dosyayı okumak için
     std::string str = "";
     std::string temp;
 
@@ -30,8 +30,8 @@ myStream::~myStream()
 {
     this->filename += ".replace";
     std::cout << this->filename << " is created." << std::endl;
-    std::ofstream out(this->filename);
-    out << this->text;
+    std::ofstream out(this->filename); // output file stream - filename adında dosyayı yazmak için (filename.replace)
+    out << this->text; // << operatörü kullanılarak veri dosyaya yazılır.
     out.close();
 }
 

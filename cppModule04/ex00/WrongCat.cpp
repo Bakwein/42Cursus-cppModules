@@ -5,36 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:11:54 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:11:55 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:35:58 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:35:58 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat")
+// Default constructor
+WrongCat::WrongCat()
 {
-	std::cout << "WrongCat Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongCat default constructor called" << std::endl;
+    this->setType("WrongCat");
 }
 
-WrongCat::WrongCat( std::string name ) : WrongAnimal(name)
+// Copy constructor
+WrongCat::WrongCat(WrongCat const& src) : WrongAnimal(src) 
 {
- 	std::cout << "Wrong Cat Name Constructor called: " << this->type<< std::endl;
+    std::cout << "WrongCat copy constructor called" << std::endl;
+    *this = src;
 }
 
- WrongCat::WrongCat( const WrongCat &rhs ) : WrongAnimal(rhs.type)
- {
- 	std::cout << "Wrong Cat Copy Constructor called: " << this->type << std::endl;
- }
-
-WrongCat::~WrongCat( void )
+// Copy assignment operator
+WrongCat& WrongCat::operator=(WrongCat const& wcat)
 {
-	std::cout << "WrongCat Destructor called: " << this->type<< std::endl;
+    std::cout << "WrongCat copy assignment operator called" << std::endl;
+    WrongAnimal::operator=(wcat);
+    return *this;
 }
 
-void	WrongCat::makeSound( void ) const
-{
-	std::cout << "Miyav Miyav: " << this->type\
-		<< std::flush << std::endl;
-}
+// Destructor
+WrongCat::~WrongCat() { std::cout << "WrongCat destructor called" << std::endl; }
+
+// Getter
+std::string const& WrongCat::getType() const { return _type; }
+
+// Public method
+void WrongCat::makeSound() const { std::cout << "Meow" << std::endl; }

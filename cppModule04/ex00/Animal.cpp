@@ -5,40 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:12:19 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:12:22 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:35:19 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:35:19 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void ) : type("Default")
+// Default constructor
+Animal::Animal() : _type("Animal")
 {
-	std::cout << "Animal Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal( std::string name ) : type(name)
+// Copy constructor
+Animal::Animal(Animal const& src)
 {
-	std::cout << "Animal Name Constructor called: " << this->type << std::endl;
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = src;
 }
 
-Animal::Animal( const Animal &rhs ) : type(rhs.type)
+// Copy assignment operator
+Animal& Animal::operator=(Animal const& animal)
 {
-	std::cout << "Animal Copy Constructor called: " << this->type << std::endl;
+    std::cout << "Animal copy assignment operator called" << std::endl;
+    _type = animal.getType();
+    return *this;
 }
 
-Animal::~Animal( void )
-{
-	std::cout << "Animal Destructor called: " << this->type << std::endl;
-}
+// Destructor
+Animal::~Animal() { std::cout << "Animal destructor called" << std::endl; }
 
-std::string	Animal::getType( void ) const
-{
-	return (this->type);
-}
+// Getter
+std::string const& Animal::getType() const { return _type; }
 
-void	Animal::makeSound( void ) const
-{
-	std::cout << "Animal makeSound called: " << this->type<< std::endl;
-}
+// Public method
+void Animal::makeSound() const { std::cout << "???" << std::endl; }
+

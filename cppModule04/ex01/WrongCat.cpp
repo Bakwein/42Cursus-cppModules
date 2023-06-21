@@ -5,27 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:23:56 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:23:57 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:37:06 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:37:06 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat")
+// Default constructor
+WrongCat::WrongCat()
 {
-	std::cout << "WrongCat Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongCat default constructor called" << std::endl;
+    this->setType("WrongCat");
 }
 
-WrongCat::~WrongCat( void )
+// Copy constructor
+WrongCat::WrongCat(WrongCat const& src) : WrongAnimal(src) 
 {
-	std::cout << "WrongCat Destructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongCat copy constructor called" << std::endl;
+    *this = src;
 }
 
-void	WrongCat::makeSound( void ) const
+// Copy assignment operator
+WrongCat& WrongCat::operator=(WrongCat const& wcat)
 {
-	std::cout << "Miyav Miyav: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongCat copy assignment operator called" << std::endl;
+    WrongAnimal::operator=(wcat);
+    return *this;
 }
+
+// Destructor
+WrongCat::~WrongCat() { std::cout << "WrongCat destructor called" << std::endl; }
+
+// Getter
+std::string const& WrongCat::getType() const { return _type; }
+
+// Public method
+void WrongCat::makeSound() const { std::cout << "Meow" << std::endl; }

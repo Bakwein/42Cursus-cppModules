@@ -5,44 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:25:49 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:25:50 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:37:14 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:37:14 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal( void ) : type("Default")
+// Default constructor
+AAnimal::AAnimal() : _type("AAnimal")
 {
-	std::cout << "AAnimal Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "AAnimal default constructor called" << std::endl;
 }
 
-AAnimal::AAnimal( std::string name ) : type(name)
+// Copy constructor
+AAnimal::AAnimal(AAnimal const& src)
 {
-	std::cout << "AAnimal Name Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "AAnimal copy constructor called" << std::endl;
+    *this = src;
 }
 
-AAnimal::AAnimal( const AAnimal &rhs ) : type(rhs.type)
+// Copy assignment operator
+AAnimal& AAnimal::operator=(AAnimal const& animal)
 {
-	std::cout << "AAnimal Copy Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "AAnimal copy assignment operator called" << std::endl;
+    _type = animal.getType();
+    return *this;
 }
 
-AAnimal::~AAnimal( void )
-{
-	std::cout << "AAnimal Destructor called: " << this->type\
-		<< std::flush << std::endl;
-}
+// Destructor
+AAnimal::~AAnimal() { std::cout << "AAnimal destructor called" << std::endl; }
 
-std::string	AAnimal::getType( void ) const
-{
-	return (this->type);
-}
+// Getter
+std::string const& AAnimal::getType() const { return _type; }
 
-void	AAnimal::makeSound( void ) const
-{
-	std::cout << "AAnimal makeSound called: " << this->type\
-		<< std::flush << std::endl;
-}
+

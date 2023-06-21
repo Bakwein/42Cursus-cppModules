@@ -3,46 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 12:53:53 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/23 13:05:10 by gsever           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:58 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:58 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal( void ) : type("WrongDefault")
+// Default constructor
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	std::cout << "WrongAnimal Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( std::string name ) : type(name)
+// Copy constructor
+WrongAnimal::WrongAnimal(WrongAnimal const& src)
 {
-	std::cout << "WrongAnimal Name Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongAnimal copy constructor called" << std::endl;
+    *this = src;
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal &rhs ) : type(rhs.type)
+// Copy assignment operator
+WrongAnimal& WrongAnimal::operator=(WrongAnimal const& wanimal)
 {
-	std::cout << "WrongAnimal Copy Constructor called: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "WrongAnimal copy assignment operator called" << std::endl;
+    _type = wanimal.getType();
+    return *this;
 }
 
-WrongAnimal::~WrongAnimal( void )
-{
-	std::cout << "WrongAnimal Destructor called: " << this->type\
-		<< std::flush << std::endl;
-}
+// Destructor
+WrongAnimal::~WrongAnimal() { std::cout << "WrongAnimal destructor called" << std::endl; }
 
-std::string	WrongAnimal::getType( void ) const
-{
-	return (this->type);
-}
+// Getter
+std::string const& WrongAnimal::getType() const { return _type; }
 
-void	WrongAnimal::makeSound( void ) const
-{
-	std::cout << "WrongAnimal makeSound called: " << this->type\
-		<< std::flush << std::endl;
-}
+// Setter
+void WrongAnimal::setType(const std::string& type) { _type = type; }
+
+// Public method
+void WrongAnimal::makeSound() const { std::cout << "???" << std::endl; }

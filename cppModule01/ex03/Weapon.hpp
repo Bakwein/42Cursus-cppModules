@@ -30,7 +30,8 @@
 
 class Weapon
 {
-    std::string type;
+    private:
+        std::string type;
     public:
         Weapon();
         Weapon(std::string type);

@@ -5,64 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:20:21 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:20:23 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:19 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:19 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-/**
- * @brief Construct a new Cat:: Cat object
- * 
- * -try-catch-throw(), for memory allocation-
- * @link https://stackoverflow.com/questions/7749066/how-to-catch-out-of-memory-exception-in-c
- * @link https://www.geeksforgeeks.org/if-memory-allocation-using-new-is-failed-in-c-then-how-it-should-be-handled/
- * ------------------------------------------
- */
-Cat::Cat( void ) : Animal("Cat")
+/* Default constructor */ 
+Cat::Cat()
 {
-	std::cout << "Cat Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
-	try
-	{
-		this->_brain = new Brain();
-		std::cout << GREEN "Memory is allocated 'Successfully'!" END\
-			<< std::flush << std::endl;
-	}
-	catch(const std::bad_alloc& e)
-	{
-		std::cerr << "Memory Allocation is failed: " << e.what() << "bytes: "\
-			<< sizeof(Brain) << std::flush << std::endl;
-	}
+    std::cout << "Cat default constructor called" << std::endl;
+    _type = "Cat";
+    _brain = new Brain;
+    for(int i = 0;i < 100; i++)
+        setIdea(i, "");
 }
 
-// Cat::Cat( std::string name ) : Animal("Cat")
-// {
-// 	std::cout << "Cat Name Constructor called: " << this->type\
-// 		<< std::flush << std::endl;
-// }
-
-// Cat::Cat( const Cat &rhs ) : Animal(rhs.type)
-// {
-// 	std::cout << "Cat Copy Constructor called: " << this->type\
-// 		<< std::flush << std::endl;
-// }
-
-Cat::~Cat( void )
+/* Copy constructor */
+Cat::Cat(Cat const& src) : Animal(src)
 {
-	std::cout << "Cat Destructor called: " << this->type\
-		<< std::flush << std::endl;
-	delete this->_brain;
+    std::cout << "Cat copy constructor called" << std::endl;
+    _brain = new Brain;
+    *_brain = *src._brain;
 }
 
-void	Cat::makeSound( void ) const
+/* Copy assignment operator */ 
+Cat& Cat::operator=(Cat const& cat)
 {
-	std::cout << "Miyav Miyav: " << this->type\
-		<< std::flush << std::endl;
+    std::cout << "Cat copy assignment operator called" << std::endl;
+    Animal::operator=(cat);
+    *_brain = *cat._brain;
+    return *this;
 }
 
-Brain	&Cat::getBrain( void ) const
+/* Destructor */ 
+Cat::~Cat() { std::cout << "Cat destructor called" << std::endl; delete _brain; } // delete sebebi oluşturduğumuz nesneyi leak vermemesi için kaldırmak
+
+/* Getters */
+std::string const& Cat::getIdea(int i) const { return _brain->getIdea(i); }
+
+/* Setter */
+void Cat::setIdea(int i, std::string const& idea) { _brain->setIdea(i, idea); }
+
+/* Public method */ 
+void Cat::makeSound() const { std::cout << "Meow" << std::endl; }
+
+void Cat::printIdeas() const
 {
-	return (*this->_brain);
+    for(int i = 0; i < 100; i++)
+    {
+        if(getIdea(i) != "")
+            std::cout << i << ". Idea: "<< getIdea(i) << std::endl;
+    }
 }

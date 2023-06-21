@@ -15,7 +15,10 @@
 Zombie* zombieHorde( int N, std::string name )
 {
     if(N <= 0)
+    {
+        std::cout << "len must be greater than 0" << std::endl;
         return NULL;
+    }
     Zombie *zombieArray = new Zombie[N];
     for(int i = 0; i < N; i++)
     {

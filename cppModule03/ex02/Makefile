@@ -3,19 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: stunca <stunca@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/19 18:14:56 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 18:14:56 by stunca           ###   ########.fr        #
+#    Created: 2023/05/31 13:27:19 by stunca            #+#    #+#              #
+#    Updated: 2023/05/31 13:45:11 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= megaphone
+NAME	= Fight3
 
 CC		= g++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
-SRC		= megaphone.cpp
+SRC		= main.cpp \
+		  ClapTrap.cpp \
+		  ScavTrap.cpp \
+		  FragTrap.cpp
+
 OBJ		= $(SRC:.cpp=.o)
 
 #COLORS

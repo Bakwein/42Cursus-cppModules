@@ -5,29 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:11:56 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:11:56 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:02 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:02 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-// # include <iostream>
-# include "WrongAnimal.hpp"
-// # include "Colors.hpp"
+#include "WrongAnimal.hpp"
+#include <iostream>
+#include <string>
 
 class WrongCat : public WrongAnimal
 {
-	 protected:
-		 std::string type;
-	public:
-		WrongCat( void );
-		 WrongCat( std::string name );
-		 WrongCat( const WrongCat &rhs );
-		~WrongCat( void );
+protected:
+    std::string _type;
+public:
+    WrongCat();
 
-	void	makeSound( void ) const;
+    WrongCat(WrongCat const& src);
+
+    WrongCat& operator=(WrongCat const& wcat);
+
+    virtual ~WrongCat();
+
+    std::string const& getType() const;
+
+    virtual void makeSound() const;
 };
 
-#endif // WRONGCAT_HPP
+#endif

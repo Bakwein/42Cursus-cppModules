@@ -5,68 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 00:20:11 by stunca            #+#    #+#             */
-/*   Updated: 2023/06/03 00:20:12 by stunca           ###   ########.fr       */
+/*   Created: 2023/06/03 16:36:12 by stunca            #+#    #+#             */
+/*   Updated: 2023/06/03 16:36:12 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain( void )
+Brain::Brain()
 {
-	std::cout << "Brain Constructor called." << std::flush << std::endl;
+    std::cout << "Brain default constructor called " << std::endl;
 }
 
-Brain::~Brain( void )
+Brain::Brain(Brain const& src)
 {
-	std::cout << "Brain Destructor called." << std::flush << std::endl;
+    std::cout << "Brain copy constructor called" << std::endl;
+    *this = src;
 }
 
-/**
- * @brief Copying rhs(right hand side) Brain to lhs Brain.
- * 
- * @note STL library func() -> std::copy().
- * @link https://www.geeksforgeeks.org/the-c-standard-template-library-stl/ -> STL libraries.
- * @link https://www.includehelp.com/stl/std-copy-function-with-example.aspx -> I think std::copy() in STL.
- * @link https://linuxhint.com/cpp-std-copy/ -> Sample.
- * @link https://www.geeksforgeeks.org/different-methods-copy-c-stl-stdcopy-copy_n-copy_if-copy_backward/ -> Sample.
- * 
- * @param rhs 
- * @return Brain const& -> lhs Brain.
- */
-Brain const	&Brain::operator=( Brain const &rhs )
+Brain::~Brain()
 {
-	// std::cout << "Brain Copy Assignment Operator called: "\
-	// 	<< std::flush << std::endl;
-	// if (this != &rhs)
-		// std::copy(rhs._ideas, rhs._ideas + 100, this->_ideas);
-	if (this != &rhs)
-		for (int i = 0; i < 100; i++)
-			this->setIdea(i, rhs.getIdea(i));
-	return (*this);
+    std::cout << "Brain destructor called" << std::endl;
 }
 
-/**
- * @brief Setting to Brain's _ideas[index].
- * 
- * @param index 
- * @param idea 
- */
-void	Brain::setIdea( int const &index, std::string const &idea )
+Brain& Brain::operator=(Brain const& brain)
 {
-	if (index >= 0 && index < 100)
-		this->_ideas[index] = idea;
+    std::cout << "Brain copy assignment operator called" << std::endl;
+    for (int i = 0; i < 100; i++) {
+        _ideas[i] = brain.getIdea(i);
+    }
+    return *this;
 }
 
-/**
- * @brief Getting Brain's _ideas[index].
- * 
- * @param index 
- * @return std::string const& -> Brain's _ides[index]
- */
-std::string	const &Brain::getIdea( int const &index ) const
-{
-	if (index >= 0 && index < 100)
-		return (this->_ideas[index]);
-	return (this->_ideas[0]);
-}
+/* Getter */
+std::string const& Brain::getIdea(int index) const { return _ideas[index]; }
+
+/* Setter */
+void Brain::setIdea(int index, std::string const& idea) { _ideas[index] = idea; }

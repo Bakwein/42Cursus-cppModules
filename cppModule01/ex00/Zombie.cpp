@@ -12,8 +12,6 @@
 
 #include "Zombie.hpp"
 
-// ZOMBIE IN STACK
-
 Zombie::Zombie(std::string Name)
 {
     this->Name = Name;

@@ -46,9 +46,9 @@ int main()
     {
         std::cin.clear();
         std::cout << CYAN<<"ENTER ADD, SEARCH or EXIT !" << END << std::endl;
-        std::cout << "📖:";
+        std::cout << "📖" << CYAN << ":" << END;
         std::getline(std::cin,input);
-        if(std::cin.eof() || !input.compare("EXIT")) // eof-> ctrl+d/ctrl+c
+        if(std::cin.eof() || !input.compare("EXIT")) // eof-> ctrl+d
             pb1.exitCommand();
         else if(!input.compare("ADD"))
             pb1.addCommand();
