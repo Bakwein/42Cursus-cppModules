@@ -3,11 +3,23 @@
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
     std::cout << "Default const. called" << std::endl;
-};
+}
+
+Bureaucrat::Bureaucrat(std::string name): name(name), grade(150)
+{
+    std::cout << "String const. called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(int grade): name("noname"), grade(grade)
+{
+    std::cout << "Int const. called" << std::endl;
+    this->isBetween();
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
     std::cout << "Constructor called" << std::endl;
+    this->isBetween();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& src)

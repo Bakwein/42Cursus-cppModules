@@ -2,6 +2,28 @@
 
 int main()
 {
+
+    try
+    {
+        Bureaucrat xd("Sefa T",1905);
+        std::cout << "BUNU YAZDIRMAYACAKK!" << xd;
+    }
+    catch(const std::exception& e1)
+    {
+        std::cout << e1.what() << '\n';
+    }
+    std::cout << "---------------------" << std::endl;
+
+    try
+    {
+        Bureaucrat xd("stunca",-1905);
+        std::cout << "BUNU YAZDIRMAYACAKK!" << xd;
+    }
+    catch(const std::exception& e1)
+    {
+        std::cout << e1.what() << '\n';
+    }
+    std::cout << "---------------------" << std::endl;
     try
     {
         Bureaucrat b("Bureaucrat", 150);
