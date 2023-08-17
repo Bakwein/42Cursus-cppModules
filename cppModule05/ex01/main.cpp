@@ -24,23 +24,23 @@ int main()
     }
     catch(const std::exception& e)
     {
-        std::cout <<  e.what() << std::endl;
+        std::cout << RED <<e.what() << '\n' << RESET;
     }
     }
 
-    std::cout << "--------------------------------" << std::endl;
-    {
+   std::cout << BLUE <<"---------------------" << std::endl << RESET;
+   {
         try
         {
             Form f("f", 1, 1222);
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << RED <<e.what() << '\n' << RESET;
         }
     }
 
-    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
     {
         try
         {
@@ -48,11 +48,11 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+           std::cout << RED <<e.what() << '\n' << RESET;
         }
     }
 
-    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
     {
         try
         {
@@ -60,12 +60,11 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << RED <<e.what() << '\n' << RESET;
         }
     }
 
-    std::cout << "--------------------------------" << std::endl;
-
+   std::cout << BLUE <<"---------------------" << std::endl << RESET;
     {
         try
         {
@@ -76,10 +75,10 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << RED <<e.what() << '\n' << RESET;
         }
     }
-    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
     {
         try
         {
@@ -100,7 +99,7 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << RED <<e.what() << '\n' << RESET;
         }
     }
 

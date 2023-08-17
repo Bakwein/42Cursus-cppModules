@@ -79,6 +79,6 @@ void    Bureaucrat::signForm(Form &form)
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& bur)
 {
-    os << bur.getName() << ", bureaucrat grade " << bur.getGrade() << " Sign Count: " << bur.signCount << std::endl;
+    os << GREEN<<  bur.getName() << ", bureaucrat grade " << bur.getGrade() << " Sign Count: " << bur.signCount << std::endl << RESET;
     return os;
 }

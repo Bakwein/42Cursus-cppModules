@@ -84,6 +84,6 @@ void    Form::isBetween()
 
 std::ostream& operator<<(std::ostream& os, Form const& f)
 {
-    os << "name: "<< f.getName() << ", _signed: " << f.getSigned() << ", gradeToSign: "<< f.getGradeToSign() << ", gradeToExecute:"<< f.getGradeToExecute()<< std::endl;
+    os << GREEN <<"name: "<< f.getName() << ", _signed: " << f.getSigned() << ", gradeToSign: "<< f.getGradeToSign() << ", gradeToExecute:"<< f.getGradeToExecute()<< std::endl << RESET;
     return os;
 }
