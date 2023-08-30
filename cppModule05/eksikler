@@ -1,1 +1,6 @@
 ex02'den devam !
+
+ex01  lowGradeFlag lazım mı ex02'ye de kopyalarken geçmiş -> lazım nedeni iki farklı yerde aynı except. gönderilidğinden dolayı çıktı mesajlarının farklı olmasını sağlıyor
+
+ex02 main
+

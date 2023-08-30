@@ -1,5 +1,5 @@
-#ifndef FORM_H
-#define FORM_H
+#ifndef AFORM_H
+#define AFORM_H
 
 #include <iostream>
 #include <string>
@@ -7,7 +7,7 @@
 
 class Bureaucrat; 
 
-class Form
+class AForm
 {
     private:
         const std::string name;
@@ -18,13 +18,13 @@ class Form
     public:
         static int lowGradeFlag;
 
-        Form();
-        Form(std::string name);
-        Form(std::string name, int gradeToSign, int gradeToExecute);
-        Form(const Form &copy);
-        ~Form();
+        AForm();
+        AForm(std::string name);
+        AForm(std::string name, int gradeToSign, int gradeToExecute);
+        AForm(const AForm &copy);
+        ~AForm();
 
-        Form &operator=(const Form &copy);
+        AForm &operator=(const AForm &copy);
 
         std::string getName() const;
         bool getSigned() const;
@@ -40,33 +40,39 @@ class Form
             public:
                 virtual const char *what() const throw()
                 {
-                    return ("Form:Grade is too high");
+                    return ("AForm:Grade is too high");
                 } 
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char *what() const throw()
-                {
-                    if(!lowGradeFlag)
-                        return ("Form:Grade is too low");
-                    return "";
-                }
+                virtual const char *what() const throw();
         };
-        /*
-        class FormAlreadySigned : public std::exception
+        
+        class AFormAlreadySigned : public std::exception
         {
             public:
-            virtual const char *what() const throw()
-            {
-                return ("Form:Form already signed");
-            }
+                virtual const char *what() const throw()
+                {
+                    return ("AForm:AForm already signed");
+                }
         };
-        */
+        
+        class AFormNotSigned : public std::exception
+        {
+            public:
+                virtual const char *what() const throw()
+                {
+                    return ("AForm is not signed!");
+                }
+
+        };
+        
+        virtual bool execute(const Bureaucrat &executor)const = 0;
         
 };
 
-std::ostream& operator<<(std::ostream &o, const Form &a);
+std::ostream& operator<<(std::ostream &o, const AForm &a);
 
 #endif

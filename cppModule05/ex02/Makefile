@@ -6,7 +6,7 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:40:40 by stunca            #+#    #+#              #
-#    Updated: 2023/08/18 01:36:28 by stunca           ###   ########.fr        #
+#    Updated: 2023/08/30 23:13:20 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ CFLAGS	=  -Werror -Wextra -Wall -std=c++98
 
 SRC		= main.cpp \
 		  Bureaucrat.cpp \
-		  Form.cpp
+		  AForm.cpp \
+		  PresidentialPardonForm.cpp \
+		  RobotomyRequestForm.cpp \
+		  ShrubberyCreationForm.cpp
 		  
-
 OBJ		= $(SRC:.cpp=.o)
 
 #COLORS

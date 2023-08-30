@@ -66,13 +66,14 @@ void    Form::beSigned(Bureaucrat &bur)
         std::cout << "Form " << this->getName() << " is signed by " << bur.getName() << std::endl;
     }
 }
-
+/*
 const char	*Form::GradeTooLowException::what() const throw()
 {
      if(!lowGradeFlag)
         return ("Form:Grade is too low");
     return "";
 }
+*/
 
 void    Form::isBetween()
 {

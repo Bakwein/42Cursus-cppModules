@@ -72,7 +72,7 @@ std::string Bureaucrat::getName()const{return name;}
 int         Bureaucrat::getGrade()const{return grade;}
 void        Bureaucrat::setGrade(int gr){grade = gr;}
 
-void    Bureaucrat::signForm(Form &form)
+void    Bureaucrat::signForm(AForm &form)
 {
     form.beSigned(*this);
 }
@@ -81,4 +81,17 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat const& bur)
 {
     os << bur.getName() << ", bureaucrat grade " << bur.getGrade() << " Sign Count: " << bur.signCount << std::endl;
     return os;
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+    if(form.execute(*this))
+    {
+        //<bureaucrat> executed <form>
+        std::cout << this->getName() << " executed " << form.getName() << "." << std::endl;
+    } 
+    else
+    {
+        std::cout << "FAILED!!11!!!" << std::endl;
+    }
 }

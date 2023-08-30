@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 //# include <cstdlib> 
 
 //Virtual keyword indicates that the function can be overridden in derived classes.
@@ -14,7 +14,7 @@
 //The virtual keyword allows the compiler to generate the correct code for calling the what() function, regardless of the type of the object that is thrown.
 //2.const->The const keyword is used because the what() function is not supposed to modify the object on which it is called. The const keyword ensures that the compiler will not generate code that attempts to modify the object.
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -66,12 +66,14 @@ class Bureaucrat
                 }
         };
 
-        void signForm(Form &f);
+        void signForm(AForm &f);
 
         std::string getName()const;
         int         getGrade()const;
 
         void        setGrade(int gr);
+
+        void executeForm(AForm const & form);
 
 };
 
