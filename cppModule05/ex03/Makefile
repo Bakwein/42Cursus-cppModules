@@ -6,7 +6,7 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:40:40 by stunca            #+#    #+#              #
-#    Updated: 2023/09/04 14:25:00 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/04 15:20:53 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC		= main.cpp \
 		  AForm.cpp \
 		  PresidentialPardonForm.cpp \
 		  RobotomyRequestForm.cpp \
-		  ShrubberyCreationForm.cpp
+		  ShrubberyCreationForm.cpp \
+		  Intern.cpp
 		  
 OBJ		= $(SRC:.cpp=.o)
 
