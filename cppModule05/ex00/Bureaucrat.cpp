@@ -38,7 +38,6 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const &bur)
     return *this;
 }
 
-
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Bureaucrat Destructor called" << std::endl;
@@ -55,7 +54,6 @@ void Bureaucrat::isBetween()
     {
         throw  Bureaucrat::GradeTooLowException();
     }
-    
 }
 
 void Bureaucrat::incrementGrade(int n)
@@ -70,7 +68,7 @@ void Bureaucrat::decrementGrade(int n)
     isBetween();
 }
 
-std::string Bureaucrat::getName()const{return name;}
+const std::string Bureaucrat::getName()const{return name;}
 int         Bureaucrat::getGrade()const{return grade;}
 
 void        Bureaucrat::setGrade(int gr){grade = gr;}

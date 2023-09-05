@@ -7,9 +7,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-//BUNU YAPMADAN DA DENE
-class AForm;
-
 class Intern
 {
     private: 

@@ -11,14 +11,14 @@ int main()
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     }
     
-    std::cout << BLUE <<"---------------------" << RESET <<std::endl;
+    std::cout << BLUE <<"----------------------------------------------" << RESET <<std::endl;
 
     {
             Intern someRandomIntern;
         AForm* rrf;
         rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
     }
-   std::cout << BLUE <<"---------------------" << RESET <<std::endl;
+   std::cout << BLUE <<"----------------------------------------------" << RESET <<std::endl;
 
    {
         try

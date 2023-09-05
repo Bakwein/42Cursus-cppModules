@@ -82,7 +82,7 @@ class Bureaucrat
                 }
         };
 
-        std::string getName()const;
+        const std::string getName()const;
         int         getGrade()const;
 
         void        setGrade(int gr);
