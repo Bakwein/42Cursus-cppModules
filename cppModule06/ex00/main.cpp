@@ -2,14 +2,23 @@
 
 int main(int argc, char **argv)
 {
-
-    if(argc == 2)
+    try
     {
-        
-        std::cout << "atoi: " <<ScalarConverter::atoi(argv[1]) << std::endl; 
+        if(argc == 2)
+        {
+            std::string xd = argv[1];
+            ScalarConverter::convert(xd);
+        }
+        else
+        {
+            std::cout << "argc must be 2!" << std::endl;
+            exit(0);
+        }
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cout << "argc must be 2!" << std::endl;
+        std::cout << "EXCEPTION FOUND :" << e.what() << "\n";
     }
+    
+    
 }

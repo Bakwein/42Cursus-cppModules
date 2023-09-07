@@ -3,6 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <climits>
+#include <float.h>
+
+
 
 # define BLACK        "\033[0;30m"
 # define RED        "\033[0;31m"
@@ -21,13 +26,74 @@
 # define B_RED         "\033[1;31m"
 # define B_RESET         "\033[1m"
 
+/*
+In C++, there is no special syntax or keyword to define a class as static.
+Instead, a class can be considered a static class
+ if it meets the following conditions:
+
+All members are static: A static class should only contain static members,
+ since non-static members would require an instance of the class to be created.
+
+No instances can be created: Since a static class is never instantiated,
+ it should not have any public constructors.
+ It can have a private constructor or no constructor at all.
+
+No inheritance: A static class cannot be inherited from, since it does not
+ have any instances to inherit from.
+
+Namespace scope: A static class should be defined at namespace scope,
+ rather than as a member of another class.
+
+Here is an example of a static class that meets these conditions:
+
+namespace MyNamespace {
+    class MyStaticClass {
+    public:
+        static int myStaticMethod() {
+            return 42;
+        }
+
+        // Other static members...
+    };
+
+    // Define static members outside of the class definition
+    int MyStaticClass::myStaticMethod() {
+        return 42;
+    }
+}
+
+In this example, MyStaticClass has only static members and cannot be instantiated.
+It is defined at namespace scope and does not allow inheritance.
+*/
+
+/*
+There is no such thing as a static class in C++. The closest approximation is a class that only contains static data members and static methods.
+
+Static data members in a class are shared by all the class objects as there is only one copy of them in the memory, regardless of the number of objects of the class. Static methods in a class can only access static data members, other static methods or any methods outside the class.
+*/
+
+/*
+char
+• int
+• float
+• double
+*/
+
 class ScalarConverter
 {
     private:
         //
     public:
-        //
-        static int atoi(std::string av);
+    
+        static void convert(std::string &str);
+
+        static int isChar(std::string &str);
+        static int isFloat(std::string &str);
+        static int isDouble(std::string &str);
+        static int isInt(std::string &str);
+        static int control(std::string &str);
+        static int dif(std::string &str);
+
 };
 
 #endif
