@@ -1,2 +1,4 @@
 e'li kısımı ekle 
 ex00'da birkaç kontrol daha yap
+
+MIN MAX'dan dolayı -42.21421 gibi bir değer girilirse eğer impossible basıyor onu düzelt

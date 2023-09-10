@@ -57,26 +57,31 @@ void ScalarConverter::convert(std::string &str)
         {
             if(i == 1)
             {
-                intValue = std::stoi(str);
+                std::cout << "INT" << std::endl;
+                intValue = std::atoi(str.c_str());
                 floatValue = static_cast<float>(intValue);
                 doubleValue = static_cast<double>(intValue);
                 charValue = static_cast<char>(intValue);
             }
             else if(i == 2)
             {
-                doubleValue = std::stod(str);
+                std::cout << "DOUBLE" << std::endl;
+                doubleValue = atof(str.c_str());
                 intValue = static_cast<int>(doubleValue);
                 floatValue = static_cast<float>(doubleValue);
                 charValue = static_cast<char>(doubleValue);
             }
             else if(i == 3)
             {
-                floatValue = std::stof(str);
+                //float f = atof(str.c_str());
+                std::cout << "FLOAT" << std::endl;
+                floatValue = atof(str.c_str());
                 doubleValue = static_cast<double>(floatValue);
                 intValue = static_cast<int>(floatValue);
             }
             else if(i == 4)
             {
+                std::cout << "CHAR" << std::endl;
                 charValue = str[0];
                 intValue = static_cast<int>(charValue);
                 doubleValue = static_cast<double>(charValue);
@@ -86,7 +91,9 @@ void ScalarConverter::convert(std::string &str)
         }
     }
 
-    std::cout << "***" << "\n" << charValue << "\n" << intValue << "\n" << doubleValue << "\n" << floatValue << "***" << std::endl;
+    std::cout << "***" << "\n" << charValue << "\n" << intValue << "\n" << doubleValue << "\n" << floatValue << "\n***" << std::endl;
+    std::cout << "char value:" << charValue << std::endl;
+
 
     std::cout << "char: ";
     if((charValue>= 32 && charValue <=47) || (charValue >= 58 && charValue <= 126))
@@ -107,7 +114,7 @@ void ScalarConverter::convert(std::string &str)
         std::cout << "impossible" << std::endl;
 
     std::cout << "float: ";
-    if(floatValue >= -FLT_MIN && floatValue <= FLT_MAX)
+    if(floatValue >= FLT_MIN && floatValue <= FLT_MAX)
     {
         if(intValue == floatValue)
             std::cout << floatValue << ".0f" << std::endl;
