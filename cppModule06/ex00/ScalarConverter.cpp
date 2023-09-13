@@ -57,7 +57,7 @@ void ScalarConverter::convert(std::string &str)
         {
             if(i == 1)
             {
-                std::cout << "INT" << std::endl;
+                //std::cout << "INT" << std::endl;
                 intValue = std::atoi(str.c_str());
                 floatValue = static_cast<float>(intValue);
                 doubleValue = static_cast<double>(intValue);
@@ -65,7 +65,7 @@ void ScalarConverter::convert(std::string &str)
             }
             else if(i == 2)
             {
-                std::cout << "DOUBLE" << std::endl;
+                //std::cout << "DOUBLE" << std::endl;
                 doubleValue = atof(str.c_str());
                 intValue = static_cast<int>(doubleValue);
                 floatValue = static_cast<float>(doubleValue);
@@ -81,7 +81,7 @@ void ScalarConverter::convert(std::string &str)
             }
             else if(i == 4)
             {
-                std::cout << "CHAR" << std::endl;
+                //std::cout << "CHAR" << std::endl;
                 charValue = str[0];
                 intValue = static_cast<int>(charValue);
                 doubleValue = static_cast<double>(charValue);
@@ -91,8 +91,8 @@ void ScalarConverter::convert(std::string &str)
         }
     }
 
-    std::cout << "***" << "\n" << charValue << "\n" << intValue << "\n" << doubleValue << "\n" << floatValue << "\n***" << std::endl;
-    std::cout << "char value:" << charValue << std::endl;
+    //std::cout << "***" << "\n" << charValue << "\n" << intValue << "\n" << doubleValue << "\n" << floatValue << "\n***" << std::endl;
+    //std::cout << "char value:" << charValue << std::endl;
 
 
     std::cout << "char: ";
