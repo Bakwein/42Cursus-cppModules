@@ -1,0 +1,6 @@
+e'li kısımı ekle 
+ex00'da birkaç kontrol daha yap
+
+ex01'i tekrar et
+
+ex02 makefile tekrar bak!!!!!
