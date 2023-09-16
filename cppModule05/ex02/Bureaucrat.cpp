@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade), 
     this->isBetween();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const& src)
+Bureaucrat::Bureaucrat(Bureaucrat const& src) : name(src.getName()), grade(src.getGrade())
 {
     std::cout << "Copy const called" << std::endl;
     *this = src;
@@ -48,11 +48,11 @@ void Bureaucrat::isBetween()
     std::cout << this->name << ":" << this->grade << std::endl;
     if(grade > 150)
     {
-        throw  Bureaucrat::GradeTooHighException();
+        throw  Bureaucrat::GradeTooLowException();
     }
     else if(grade < 1)
     {
-        throw  Bureaucrat::GradeTooLowException();
+        throw  Bureaucrat::GradeTooHighException();
     }
 }
 

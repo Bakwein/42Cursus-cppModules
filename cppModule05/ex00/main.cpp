@@ -2,11 +2,55 @@
 
 int main()
 {
+    try
+    {
+        // int m = 10 / 0;
+        int x = 10;
+        if(x != 0)
+        {
+            std::cout << GREEN << "x is not 0 " << RESET << std::endl;
+        }
+        else 
+            throw x;
+    }
+    catch(std::exception e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    catch(int x)
+    {
+        std::cout <<  RED << x << " detected" << RESET << std::endl;
+    }
+
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
+
+    try
+    {
+        throw std::length_error("length exception when .....");
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << RED << e.what() << RESET <<'\n';
+    }
+
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
+
+    try
+    {
+        throw std::invalid_argument("inv arg");
+        throw std::out_of_range("out of range");
+    }
+    catch(...)
+    {
+        std::cout << RED << "exception detected!! " << RESET << std::endl;
+    }
+    
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
 
     try
     {
         Bureaucrat xd("Sefa T",1905);
-        std::cout << "BUNU YAZDIRMAYACAKK!" << xd;
+        std::cout << "THIS WILL NOT PRINT!" << xd;
     }
     catch(const std::exception& e1)
     {
@@ -17,7 +61,7 @@ int main()
     try
     {
         Bureaucrat xd("stunca",-1905);
-        std::cout << "BUNU YAZDIRMAYACAKK!" << xd;
+        std::cout << "THIS WILL NOT PRINT!" << xd;
     }
     catch(const std::exception& e1)
     {
@@ -53,8 +97,11 @@ int main()
     try
     {
         Bureaucrat b2;
+        std::cout << b2;
         Bureaucrat b5 = b2;
+        std::cout << b5;
         b5.decrementGrade(50);
+        std::cout << PURPLE <<"b5's grade-> " << b5.getGrade() << RESET <<std::endl;
     }
     catch(const std::exception& e)
     {
@@ -66,23 +113,29 @@ int main()
     try
     {
         Bureaucrat b3;
+        std::cout << b3;
         Bureaucrat b4(b3);
+        std::cout << b4;
         b4.incrementGrade(2);
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << "low excp." << std::endl;
+        std::cout << RED <<"low excp." << RESET<< std::endl;
         std::cout << RED << e.what() << std::endl << RESET;
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << "high excp." << std::endl;
+        std::cout << RED<<"high excp." << RESET <<std::endl;
         std::cout << RED << e.what() << std::endl << RESET;
     }
     catch(const std::exception& e)
     {
-        std::cout << "all excp." << std::endl;
+        std::cout << RED <<"all excp." << RESET <<std::endl;
         std::cout << RED << e.what() << std::endl << RESET;
+    }
+    catch(...)
+    {
+        std::cout << RED << "a thing that throwable" << RESET <<std::endl;
     }
 
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -94,12 +147,14 @@ int main()
         b6.decrementGrade(1);
         b6.decrementGrade(10);
     }
-    catch (const Bureaucrat::GradeTooHighException &h)
+    catch (const Bureaucrat::GradeTooLowException &h)
     {
+        std::cout << RED << "only low" << RESET << std::endl;
         std::cout << RED << h.what() << std::endl << RESET;
     }
     catch(const std::exception& e)
     {
+        std::cout << RED <<"all except." << RESET<< std::endl;
         std::cout << RED << e.what() << std::endl << RESET;
     }
 

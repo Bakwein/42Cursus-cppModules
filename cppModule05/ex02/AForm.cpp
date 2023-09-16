@@ -78,9 +78,9 @@ const char	*AForm::GradeTooLowException::what() const throw()
 void    AForm::isBetween()
 {
     if(gradeToSign > 150 || gradeToExecute > 150)
-        throw AForm::GradeTooHighException();
-    else if(gradeToSign < 1 || gradeToSign < 1)
         throw AForm::GradeTooLowException();
+    else if(gradeToSign < 1 || gradeToSign < 1)
+        throw AForm::GradeTooHighException();
 }
 
 std::ostream& operator<<(std::ostream& os, AForm const& f)

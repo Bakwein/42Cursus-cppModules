@@ -4,15 +4,15 @@
 int main()
 {
     {
-    Bureaucrat b("b", 1);
-    Bureaucrat b2("sefa",24);
-    Bureaucrat xd("bure",3);
-    Form f("f", 1, 1);
-    Form f1("form2",42,24);
-    Form f2("Form3",32,122);
+    
     try
     {
-        
+        Bureaucrat b("b", 1);
+        Bureaucrat b2("sefa",24);
+        Bureaucrat xd("bure",3);
+        Form f("f", 1, 1);
+        Form f1("form2",42,24);
+        Form f2("Form3",32,122);
         b.signForm(f);
         std::cout << f;
         b.signForm(f1);
@@ -69,7 +69,7 @@ int main()
         try
         {
             Form f("f", 23, 24);
-            Bureaucrat b("sefoş", 124);
+            Bureaucrat b("sefaT", 124);
             //f.beSigned(b);
             b.signForm(f);
         }
@@ -79,6 +79,24 @@ int main()
         }
     }
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
+
+    {
+        try
+        {
+            Form f("f", 23, 24);
+            Bureaucrat b("sefaT", 1);
+            f.beSigned(b);
+            b.signForm(f);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what() << '\n';
+        }
+        
+
+    }
+    std::cout << BLUE <<"---------------------" << std::endl << RESET;
+    {
     {
         try
         {

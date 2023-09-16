@@ -50,20 +50,20 @@ void    Form::beSigned(Bureaucrat &bur)
 {
     if(bur.getGrade() > this->getGradeToSign())
     {
-        std::cout << bur.getName() << " cannot sign " << this->getName() << " because grade problem" << std::endl;
+        std::cout << PURPLE << bur.getName() << " cannot sign " << this->getName() << " because grade problem" << RESET << std::endl;
         lowGradeFlag = 1;
         throw Form::GradeTooLowException();
     }
     else if(_signed) //true
     {
-        std::cout << bur.getName() << " cannot sign " << this->getName() << " because it's already signed" << std::endl;
+        std::cout << PURPLE <<  bur.getName() << " cannot sign " << this->getName() << " because it's already signed" << RESET <<std::endl;
         //throw Form::FormAlreadySigned();
     }
     else if(!_signed) //false
     {
         _signed = true;
         bur.signCount++;
-        std::cout << "Form " << this->getName() << " is signed by " << bur.getName() << std::endl;
+        std::cout << CYAN <<"Form " << this->getName() << " is signed by " << bur.getName() <<  RESET <<std::endl;
     }
 }
 /*
@@ -78,9 +78,9 @@ const char	*Form::GradeTooLowException::what() const throw()
 void    Form::isBetween()
 {
     if(gradeToSign > 150 || gradeToExecute > 150)
-        throw Form::GradeTooHighException();
-    else if(gradeToSign < 1 || gradeToSign < 1)
         throw Form::GradeTooLowException();
+    else if(gradeToSign < 1 || gradeToSign < 1)
+        throw Form::GradeTooHighException();
 }
 
 std::ostream& operator<<(std::ostream& os, Form const& f)
