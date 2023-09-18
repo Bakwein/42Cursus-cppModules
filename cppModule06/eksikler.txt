@@ -1,12 +1,11 @@
-e'li kısımı ekle 
-ex00'da birkaç kontrol daha yap
+ex00 tamam gibi e'li kısımın gerekip gerekmeyeceğine bak
 
-ex01'i tekrar et
+ex01 tamma gibi
 
 ex02 makefile tekrar bak!!!!!
 
 CALISMALARI SİLMEYİ UNUTMA
 
-ex00 tamam gibi ama tekrardan bak sonra diğer exlerden konuları notion üzerinden işleyerek devam et 
+ex00,ex01 tamam gibi ama tekrardan bak sonra diğer exlerden konuları notion üzerinden işleyerek devam et 
 
-inf,nav falan kavramlara da bak
+ex00'da inf,nav falan kavramlara da bak
