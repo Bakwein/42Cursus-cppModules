@@ -6,11 +6,11 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:40:40 by stunca            #+#    #+#              #
-#    Updated: 2023/09/04 15:20:53 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/18 14:59:18 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= bureaucrat3
+NAME	= bureaucrat4
 
 CC		= g++
 CFLAGS	=  -Werror -Wextra -Wall -std=c++98

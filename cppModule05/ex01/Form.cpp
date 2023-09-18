@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-int Form::lowGradeFlag = 0;
+//int Form::lowGradeFlag = 0;
 
 Form::Form(): name("default"),_signed(false),gradeToSign(150),gradeToExecute(150)
 {
@@ -51,7 +51,7 @@ void    Form::beSigned(Bureaucrat &bur)
     if(bur.getGrade() > this->getGradeToSign())
     {
         std::cout << PURPLE << bur.getName() << " cannot sign " << this->getName() << " because grade problem" << RESET << std::endl;
-        lowGradeFlag = 1;
+        //lowGradeFlag = 1;
         throw Form::GradeTooLowException();
     }
     else if(_signed) //true
@@ -69,9 +69,9 @@ void    Form::beSigned(Bureaucrat &bur)
 /*
 const char	*Form::GradeTooLowException::what() const throw()
 {
-     if(!lowGradeFlag)
+    //if(!lowGradeFlag)
         return ("Form:Grade is too low");
-    return "";
+    //return "";
 }
 */
 

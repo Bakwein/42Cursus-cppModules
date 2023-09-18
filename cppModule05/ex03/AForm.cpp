@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-int AForm::lowGradeFlag = 0;
+//int AForm::lowGradeFlag = 0;
 
 AForm::AForm(): name("default"),_signed(false),gradeToSign(150),gradeToExecute(150)
 {
@@ -52,7 +52,7 @@ void    AForm::beSigned(Bureaucrat &bur)
     {
         std::cout << bur.getGrade()<<   " " <<  this->getGradeToSign() << std::endl;
         std::cout << RED <<bur.getName() << " cannot sign " << this->getName() << " because grade problem" << RESET <<std::endl;
-        lowGradeFlag = 1;
+        //lowGradeFlag = 1;
         throw AForm::GradeTooLowException();
     }
     else if(_signed) //true
@@ -70,9 +70,9 @@ void    AForm::beSigned(Bureaucrat &bur)
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-     if(!lowGradeFlag)
+    //if(!lowGradeFlag)
         return ("AForm:Grade is too low");
-    return "";
+    //return "";
 }
 
 void    AForm::isBetween()

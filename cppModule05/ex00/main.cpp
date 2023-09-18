@@ -5,7 +5,7 @@ int main()
     try
     {
         // int m = 10 / 0;
-        int x = 10;
+        int x = 0;
         if(x != 0)
         {
             std::cout << GREEN << "x is not 0 " << RESET << std::endl;
@@ -15,7 +15,7 @@ int main()
     }
     catch(std::exception e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout<< RED << e.what() << RESET << std::endl;
     }
     catch(int x)
     {
@@ -39,6 +39,15 @@ int main()
     {
         throw std::invalid_argument("inv arg");
         throw std::out_of_range("out of range");
+    }
+    /*catch(std::invalid_argument &e)
+    {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    */
+    catch(std::out_of_range &s)
+    {
+        std::cout << RED << s.what() << RESET << std::endl;
     }
     catch(...)
     {
@@ -72,7 +81,7 @@ int main()
     {
         Bureaucrat b("Bureaucrat", 150);
         std::cout << b;
-        b.incrementGrade(10);
+        b.decrementGrade(10);
         std::cout << "???" << std::endl;
     }
     catch (std::exception &e)
@@ -84,7 +93,7 @@ int main()
     {
         Bureaucrat b("Bureaucrat", 1);
         std::cout << b;
-        b.decrementGrade(10);
+        b.incrementGrade(10);
         std::cout << "???" << std::endl;
     }
     catch (std::exception &e)
@@ -98,9 +107,10 @@ int main()
     {
         Bureaucrat b2;
         std::cout << b2;
-        Bureaucrat b5 = b2;
+        Bureaucrat b5;
+        b5 = b2;
         std::cout << b5;
-        b5.decrementGrade(50);
+        b5.incrementGrade(50);
         std::cout << PURPLE <<"b5's grade-> " << b5.getGrade() << RESET <<std::endl;
     }
     catch(const std::exception& e)
@@ -116,7 +126,7 @@ int main()
         std::cout << b3;
         Bureaucrat b4(b3);
         std::cout << b4;
-        b4.incrementGrade(2);
+        b4.decrementGrade(2);
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
@@ -144,8 +154,8 @@ int main()
     {
         Bureaucrat b6("Bureaucrat", 2);
         std::cout << b6;
-        b6.decrementGrade(1);
-        b6.decrementGrade(10);
+        b6.incrementGrade(1);
+        b6.incrementGrade(10);
     }
     catch (const Bureaucrat::GradeTooLowException &h)
     {
@@ -155,8 +165,10 @@ int main()
     catch(const std::exception& e)
     {
         std::cout << RED <<"all except." << RESET<< std::endl;
-        std::cout << RED << e.what() << std::endl << RESET;
+        std::cout << RED << e.what() << RESET << std::endl;
     }
+
+    //system("leaks bureaucrat");
 
     return (0);
 }

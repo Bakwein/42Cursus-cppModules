@@ -45,7 +45,7 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::isBetween()
 {
-    std::cout << this->name << ":" << this->grade << std::endl;
+    std::cout << YELLOW << this->name << ":" << this->grade << RESET << std::endl;
     if(grade > 150)
     {
         throw  Bureaucrat::GradeTooLowException();
@@ -58,13 +58,13 @@ void Bureaucrat::isBetween()
 
 void Bureaucrat::incrementGrade(int n)
 {
-    grade += n;
+    grade -= n;
     isBetween();
 }
 
 void Bureaucrat::decrementGrade(int n)
 {
-    grade -= n;
+    grade += n;
     isBetween();
 }
 

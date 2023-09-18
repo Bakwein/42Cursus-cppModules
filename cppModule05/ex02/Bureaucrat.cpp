@@ -58,13 +58,13 @@ void Bureaucrat::isBetween()
 
 void Bureaucrat::incrementGrade(int n)
 {
-    grade += n;
+    grade -= n;
     isBetween();
 }
 
 void Bureaucrat::decrementGrade(int n)
 {
-    grade -= n;
+    grade += n;
     isBetween();
 }
 

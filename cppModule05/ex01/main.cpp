@@ -4,28 +4,28 @@
 int main()
 {
     {
-    
-    try
-    {
-        Bureaucrat b("b", 1);
-        Bureaucrat b2("sefa",24);
-        Bureaucrat xd("bure",3);
-        Form f("f", 1, 1);
-        Form f1("form2",42,24);
-        Form f2("Form3",32,122);
-        b.signForm(f);
-        std::cout << f;
-        b.signForm(f1);
-        std::cout << f;
-        b.signForm(f2);
-        std::cout << f;
-        b.signForm(f1);
-        //std::cout << "za\n";
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << RED <<e.what() << '\n' << RESET;
-    }
+        try
+        {
+            Bureaucrat b("b", 1);
+            Bureaucrat b2("sefa",24);
+            Bureaucrat xd("bure",3);
+            Form f("f", 1, 1);
+            Form f1("form2",42,24);
+            Form f2("Form3",32,122);
+            b.signForm(f);
+            std::cout << f;
+            b2.signForm(f1);
+            std::cout << f;
+            xd.signForm(f2);
+            std::cout << f;
+            b.signForm(f1);
+            //std::cout << "za\n";
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << RED <<e.what() << '\n' << RESET;
+        }
+        //system("leaks bureaucrat2");
     }
 
    std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -38,6 +38,7 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
+        //system("leaks bureaucrat2");
     }
 
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -50,6 +51,7 @@ int main()
         {
            std::cout << RED <<e.what() << '\n' << RESET;
         }
+        //system("leaks bureaucrat2");
     }
 
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -62,13 +64,14 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
+        //system("leaks bureaucrat2");
     }
 
    std::cout << BLUE <<"---------------------" << std::endl << RESET;
     {
         try
         {
-            Form f("f", 23, 24);
+            Form f("f", 123, 24);
             Bureaucrat b("sefaT", 124);
             //f.beSigned(b);
             b.signForm(f);
@@ -77,6 +80,7 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
+        //system("leaks bureaucrat2");
     }
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
 
@@ -90,13 +94,13 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << RED  <<e.what() << '\n';
         }
-        
+        //system("leaks bureaucrat2");
 
     }
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
-    {
+    
     {
         try
         {
@@ -119,9 +123,10 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
+        //system("leaks bureaucrat2");
     }
 
-
+    std::cout << "\n";
     //system("leaks bureaucrat2");
     return (0);
 }

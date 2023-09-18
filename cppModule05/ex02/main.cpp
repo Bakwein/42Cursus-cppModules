@@ -1,12 +1,9 @@
-
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 int main()
-{
-
-    
+{   
     {
         try
         {
@@ -21,6 +18,7 @@ int main()
         {
             std::cout << B_RED << e.what() << RESET <<std::endl;
         }
+        //system("leaks bureaucrat3");
     }
     std::cout << BLUE <<"---------------------" << RESET <<std::endl;
     {
@@ -36,6 +34,7 @@ int main()
         {
             std::cout << B_RED << e.what() << RESET <<std::endl;
         }
+        //system("leaks bureaucrat3");
     }
     std::cout << BLUE <<"---------------------" << RESET <<std::endl;
     
@@ -68,6 +67,7 @@ int main()
         {
             std::cout << B_RED << e.what() << RESET <<std::endl;
         }
+        //system("leaks bureaucrat3");
     }
     
     std::cout << BLUE <<"---------------------" << RESET <<std::endl;
@@ -101,6 +101,7 @@ int main()
         {
             std::cout << B_RED << e.what() << RESET <<std::endl;
         }
+        //system("leaks bureaucrat3");
     }
     std::cout << BLUE <<"---------------------" << RESET <<std::endl;
     {
@@ -136,8 +137,9 @@ int main()
         {
             std::cout << B_RED <<e.what() << RESET <<std::endl;
         }
+        //system("leaks bureaucrat3");
     }
-    
+    //system("leaks bureaucrat3");
     return (0);
 }
 

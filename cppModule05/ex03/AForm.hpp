@@ -16,7 +16,7 @@ class AForm
         const int gradeToExecute;
 
     public:
-        static int lowGradeFlag;
+        //static int lowGradeFlag;
 
         AForm();
         AForm(std::string name);

@@ -16,7 +16,7 @@ class Form
         const int gradeToExecute;
 
     public:
-        static int lowGradeFlag;
+        //static int lowGradeFlag;
 
         Form();
         Form(std::string name);
@@ -49,9 +49,9 @@ class Form
             public:
                 virtual const char *what() const throw()
                 {
-                    if(!lowGradeFlag)
+                    //if(!lowGradeFlag)
                         return ("Form:Grade is too low");
-                    return "";
+                    //return "";
                 }
         };
         /*
@@ -64,6 +64,7 @@ class Form
             }
         };
         */
+        
         
 };
 
