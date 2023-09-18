@@ -74,10 +74,11 @@ void ScalarConverter::convert(std::string &str)
             else if(i == 3)
             {
                 //float f = atof(str.c_str());
-                std::cout << "FLOAT" << std::endl;
+                //std::cout << "FLOAT" << std::endl;
                 floatValue = atof(str.c_str());
                 doubleValue = static_cast<double>(floatValue);
                 intValue = static_cast<int>(floatValue);
+                charValue = static_cast<char>(floatValue); //not sure for this
             }
             else if(i == 4)
             {
@@ -114,7 +115,7 @@ void ScalarConverter::convert(std::string &str)
         std::cout << "impossible" << std::endl;
 
     std::cout << "float: ";
-    if(floatValue >= FLT_MIN && floatValue <= FLT_MAX)
+    if((floatValue >= -FLT_MIN && floatValue <= FLT_MAX) || (floatValue < 0 && floatValue * -1 >= -FLT_MIN && floatValue <= FLT_MAX))
     {
         if(intValue == floatValue)
             std::cout << floatValue << ".0f" << std::endl;
@@ -127,9 +128,9 @@ void ScalarConverter::convert(std::string &str)
     }
 
     std::cout << "double: ";
-    if(doubleValue >= -DBL_MIN && doubleValue <= DBL_MAX)
+    if((doubleValue >= -DBL_MIN && doubleValue <= DBL_MAX) || (doubleValue < 0 && doubleValue * -1 >= -DBL_MIN && doubleValue <= DBL_MAX))
     {
-        if(doubleValue == floatValue)
+        if(doubleValue - int(doubleValue) == 0)
             std::cout << doubleValue << ".0" << std::endl;
         else
             std::cout << doubleValue << std::endl;
@@ -254,56 +255,10 @@ int ScalarConverter::isInt(std::string &str)
 
 int ScalarConverter::dif(std::string &str)
 {
-    (void)str;
+    (void)str; //for flags
     std::cout << "char: infinity" << std::endl;
     std::cout << "int: infinity" << std::endl;
     std::cout << "float: infinity" << std::endl;
     std::cout << "double: infinity" << std::endl;
     exit(0);
 }
-
-
-
-/*
-int ScalarConverter::atoi(std::string av)
-{
-    int num = 0;
-    int neg_flag = 0;
-    int a = 0;
-    int len = av.length();
-    int temp = 0;
-
-    while(av[a] < 32)
-    {
-        a++;
-    }
-    temp = a;
-    while((av[a] >= 'a' && av[a] <= 'z') ||(av[a] >= 'A' && av[a] <= 'Z'))
-    {
-        a++;
-    }
-    a = temp;
-    if(av[a] == '+' || av[a] == '-')
-    {
-        if(av[a] == '-')
-        {
-            neg_flag = -1;
-        }
-        a++;
-    }
-    while(av[a] >= '0' && av[a] <= '9')
-    {
-        num = 10 * num + (av[a]-'0');
-        a++;
-    }
-    if(a != len)
-    {
-        return (-1);
-    }
-
-
-
-    //degisecek
-    return num * neg_flag;
-}
-*/

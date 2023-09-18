@@ -4,3 +4,9 @@ ex00'da birkaç kontrol daha yap
 ex01'i tekrar et
 
 ex02 makefile tekrar bak!!!!!
+
+CALISMALARI SİLMEYİ UNUTMA
+
+ex00 tamam gibi ama tekrardan bak sonra diğer exlerden konuları notion üzerinden işleyerek devam et 
+
+inf,nav falan kavramlara da bak
