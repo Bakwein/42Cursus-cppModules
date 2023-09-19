@@ -1,3 +1,7 @@
+5-de valgrind ile leak kontrolü yap muhtemelen son ex'de leak çıkacak(çünkü çıkmalı xD)
+5-de yorum satırı kontrolü yap
+
+
 ex00 tamam gibi e'li kısımın gerekip gerekmeyeceğine bak
 
 ex01 tamma gibi

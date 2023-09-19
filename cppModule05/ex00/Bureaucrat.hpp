@@ -42,10 +42,7 @@ class Bureaucrat
         //const.
         Bureaucrat(std::string);
         Bureaucrat(int grade);
-
         Bureaucrat(std::string name, int grade);
-
-        
 
         //copy const.
         Bureaucrat(Bureaucrat const& src);
