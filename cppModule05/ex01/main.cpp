@@ -25,7 +25,6 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
 
    std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -38,7 +37,6 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
 
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -51,7 +49,6 @@ int main()
         {
            std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
 
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -64,7 +61,6 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
 
    std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -80,7 +76,6 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
 
@@ -96,7 +91,6 @@ int main()
         {
             std::cout << RED  <<e.what() << '\n';
         }
-        //system("leaks bureaucrat2");
 
     }
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
@@ -123,10 +117,6 @@ int main()
         {
             std::cout << RED <<e.what() << '\n' << RESET;
         }
-        //system("leaks bureaucrat2");
     }
-
-    std::cout << "\n";
-    //system("leaks bureaucrat2");
     return (0);
 }

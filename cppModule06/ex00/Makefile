@@ -1,6 +1,6 @@
 NAME	= convert
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= main.cpp \

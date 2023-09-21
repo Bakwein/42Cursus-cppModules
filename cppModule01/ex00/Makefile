@@ -6,13 +6,13 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:38:07 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 19:38:08 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:16:18 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= zombie
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= main.cpp \

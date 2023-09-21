@@ -6,13 +6,13 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 18:36:28 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 18:42:54 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:16:24 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= PhoneBook
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		=	Contact.cpp \

@@ -6,13 +6,13 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:09:54 by stunca            #+#    #+#              #
-#    Updated: 2023/05/20 15:45:14 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:16:21 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= test
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= Account.cpp \

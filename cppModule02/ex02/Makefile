@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stunca <stunca@student.42.fr>              +#+  +:+       +#+         #
+#    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 13:18:10 by stunca            #+#    #+#              #
-#    Updated: 2023/05/31 13:18:10 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:17:54 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= Fixed
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= main.cpp \

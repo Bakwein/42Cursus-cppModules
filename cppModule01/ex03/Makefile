@@ -6,13 +6,13 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 19:51:43 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 19:51:44 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:16:07 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fight
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= main.cpp \

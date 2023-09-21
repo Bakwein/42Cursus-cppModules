@@ -114,8 +114,13 @@ void ScalarConverter::convert(std::string &str)
     else
         std::cout << "impossible" << std::endl;
 
+
+    //std::cout << FLT_MIN <<" " <<-FLT_MIN<<" "<< DBL_MIN<< " "<< -DBL_MIN << std::endl;
     std::cout << "float: ";
+    //std::cout << "floatValue:" << floatValue <<  " " << (floatValue < 0) <<" " <<(floatValue * -1 >= -FLT_MIN) <<" "<<(floatValue >= FLT_MIN) <<" " <<(floatValue <= FLT_MAX) << std::endl;
+    std::cout << (floatValue >= -FLT_MIN && floatValue <= FLT_MAX) << " " << (floatValue >= FLT_MIN) << " "<<(floatValue <= FLT_MAX) << std::endl;
     if((floatValue >= -FLT_MIN && floatValue <= FLT_MAX) || (floatValue < 0 && floatValue * -1 >= -FLT_MIN && floatValue <= FLT_MAX))
+    if(floatValue >= -FLT_MIN && floatValue <= FLT_MAX)
     {
         if(intValue == floatValue)
             std::cout << floatValue << ".0f" << std::endl;
@@ -126,8 +131,8 @@ void ScalarConverter::convert(std::string &str)
     {
         std::cout << "impossible" << std::endl;
     }
-
     std::cout << "double: ";
+    std::cout << "doubleValue:" << doubleValue << " " << (doubleValue < 0) << " " << (doubleValue * -1 >= -DBL_MIN) << " " <<(doubleValue >= DBL_MIN) <<" " << (doubleValue <= DBL_MAX) << " " << std::endl;
     if((doubleValue >= -DBL_MIN && doubleValue <= DBL_MAX) || (doubleValue < 0 && doubleValue * -1 >= -DBL_MIN && doubleValue <= DBL_MAX))
     {
         if(doubleValue - int(doubleValue) == 0)

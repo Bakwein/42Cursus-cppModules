@@ -50,20 +50,21 @@ void    Form::beSigned(Bureaucrat &bur)
 {
     if(bur.getGrade() > this->getGradeToSign())
     {
-        std::cout << PURPLE << bur.getName() << " cannot sign " << this->getName() << " because grade problem" << RESET << std::endl;
+        std::cout << PURPLE << bur.getName() << " couldn't sign " << this->getName() << " because grade problem" << RESET << std::endl;
         //lowGradeFlag = 1;
         throw Form::GradeTooLowException();
     }
     else if(_signed) //true
     {
-        std::cout << PURPLE <<  bur.getName() << " cannot sign " << this->getName() << " because it's already signed" << RESET <<std::endl;
+        std::cout << PURPLE <<  bur.getName() << " couldn't sign " << this->getName() << " because it's already signed" << RESET <<std::endl;
         //throw Form::FormAlreadySigned();
     }
     else if(!_signed) //false
     {
         _signed = true;
         bur.signCount++;
-        std::cout << CYAN <<"Form " << this->getName() << " is signed by " << bur.getName() <<  RESET <<std::endl;
+        //std::cout << CYAN <<"Form " << this->getName() << " is signed by " << bur.getName() <<  RESET <<std::endl;
+        std::cout << GREEN << bur.getName() << " signed " << this->getName() <<RESET << std::endl;
     }
 }
 /*

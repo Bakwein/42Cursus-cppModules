@@ -1,13 +1,11 @@
-NAME	= reinterpret
+NAME	= dynamic
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= Base.cpp \
-		  main.cpp \
-		  A.cpp \
-		  B.cpp \
-		  C.cpp
+		  main.cpp 
+		  
 OBJ		= $(SRC:.cpp=.o)
 
 #COLORS

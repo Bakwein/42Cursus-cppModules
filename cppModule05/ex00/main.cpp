@@ -4,7 +4,8 @@ int main()
 {
     try
     {
-        // int m = 10 / 0;
+        //int m = 10 / 0;
+        //(void)m;
         int x = 0;
         if(x != 0)
         {
@@ -13,7 +14,7 @@ int main()
         else 
             throw x;
     }
-    catch(std::exception e)
+    catch(const std::exception &e)
     {
         std::cout<< RED << e.what() << RESET << std::endl;
     }
@@ -21,7 +22,6 @@ int main()
     {
         std::cout <<  RED << x << " detected" << RESET << std::endl;
     }
-
     std::cout << BLUE <<"---------------------" << std::endl << RESET;
 
     try
@@ -167,8 +167,6 @@ int main()
         std::cout << RED <<"all except." << RESET<< std::endl;
         std::cout << RED << e.what() << RESET << std::endl;
     }
-
-    //system("leaks bureaucrat");
 
     return (0);
 }

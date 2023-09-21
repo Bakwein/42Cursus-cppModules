@@ -6,13 +6,13 @@
 #    By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/19 18:14:44 by stunca            #+#    #+#              #
-#    Updated: 2023/05/19 18:14:45 by stunca           ###   ########.fr        #
+#    Updated: 2023/09/21 17:16:28 by stunca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= megaphone
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
 
 SRC		= megaphone.cpp

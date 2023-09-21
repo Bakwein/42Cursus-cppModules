@@ -1,25 +1,130 @@
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 Base::~Base(void)
 {
     std::cout << "Base's destructor." << std::endl;
 }
-/*
-A::~A(void)
+
+
+Base* makeA(void)
 {
-    std::cout << "A's destructor." << std::endl;
+    return new A();
 }
 
-B::~B(void)
+Base* makeB(void)
 {
-    std::cout << "B's destructor." << std::endl;
+    return new B();
 }
 
-C::~C(void)
+Base* makeC(void)
 {
-    std::cout << "C's destructor." << std::endl;
+    return new C();
 }
-*/
+
+Base* generate(void)
+{
+    int num = rand() % 3;
+    std::cout << BLUE << "num: " << num << RESET << std::endl;
+    if(num == 0)
+    {
+        std::cout << PURPLE <<"A is being created." << RESET <<std::endl;
+        return (makeA());
+    }
+    else if(num == 1)
+    {
+        std::cout << PURPLE <<"B is being created." << RESET << std::endl;
+        return (makeB());
+    }
+    else
+    {
+        std::cout << PURPLE << "C is being created." << RESET << std::endl;
+        return (makeC());
+    }
+}
+
+void identify(Base* p)
+{
+    A* a_ptr = dynamic_cast<A*>(p);
+    B* b_ptr = dynamic_cast<B*>(p);
+    C* c_ptr = dynamic_cast<C*>(p);
+
+    if(a_ptr != NULL)
+    {
+        std::cout<< GREEN << "Class is A" << RESET << std::endl;
+    }
+    else
+    {
+        std::cout << RED << "Class is not A" << RESET << std::endl;
+    }
+
+    if(b_ptr != NULL)
+    {
+        std::cout<< GREEN << "Class is B" << RESET  << std::endl;
+    }
+    else
+    {
+        std::cout << RED << "Class is not B" << RESET <<std::endl;
+    }
+
+    if(c_ptr != NULL)
+    {
+        std::cout<< GREEN << "Class is C" << RESET << std::endl;
+    }
+    else
+    {
+        std::cout << RED << "Class is not C" << RESET << std::endl;
+    }
+
+}
+
+void identify(Base& p)
+{
+    try
+    {
+        A &a_ref = dynamic_cast<A&>(p);
+        (void)a_ref;
+        std::cout << GREEN << "Class A" << RESET << std::endl;
+    }
+    catch(const std::bad_cast& e)
+    {
+        std::cout << RED<< e.what() <<RESET << std::endl;
+    }
+    catch(const std::exception& e1)
+    {
+        std::cout << e1.what() << std::endl;
+    }
+
+
+    try
+    {
+        B &b_ref = dynamic_cast<B&>(p);
+        (void)b_ref;
+        std::cout << GREEN << "Class B" << RESET << std::endl;
+    }
+    catch(const std::exception& e2)
+    {
+        std::cout<< RED << e2.what() << RESET << std::endl;
+    }
+    
+    try
+    {
+        C &c_ref = dynamic_cast<C&>(p);
+        (void)c_ref;
+        std::cout << GREEN << "Class C" << RESET << std::endl;
+    }
+    catch(const std::exception& e3)
+    {
+        std::cout << RED << e3.what() << RESET << 
+     std::endl;
+    }
+    
+    
+
+
+}
 
 
 

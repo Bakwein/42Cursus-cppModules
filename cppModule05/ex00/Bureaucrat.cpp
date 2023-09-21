@@ -75,6 +75,6 @@ void        Bureaucrat::setGrade(int gr){grade = gr;}
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& bur)
 {
-    os << GREEN <<bur.getName() << ", bureaucrat grade " << bur.getGrade() << std::endl << RESET;
+    os << GREEN <<bur.getName() << ", bureaucrat grade " << bur.getGrade() <<  "." <<std::endl << RESET;
     return os;
 }

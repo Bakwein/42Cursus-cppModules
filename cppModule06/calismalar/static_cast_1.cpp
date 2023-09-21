@@ -15,6 +15,7 @@ public:
 
 int main()
 {
+  {
     double dd1 = 7.21;
     double dd2 = 15.12;
     double dd3;
@@ -54,5 +55,6 @@ int main()
 
     double f1 = static_cast<float>(-2);
     std::cout << "f1: " << f1 << std::endl;
- 
+  }
+  
 }

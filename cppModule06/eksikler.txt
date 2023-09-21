@@ -1,15 +1,8 @@
-5-de valgrind ile leak kontrolü yap muhtemelen son ex'de leak çıkacak(çünkü çıkmalı xD)
-5-de yorum satırı kontrolü yap
-
-
 ex00 tamam gibi e'li kısımın gerekip gerekmeyeceğine bak
+ex00'da inf,nav falan kavramlara da bak
 
-ex01 tamma gibi
+ex00'da ARIZA VAR!!!!!!!!!!!
 
-ex02 makefile tekrar bak!!!!!
+ex01,ex02 tamma gibi
 
 CALISMALARI SİLMEYİ UNUTMA
-
-ex00,ex01 tamam gibi ama tekrardan bak sonra diğer exlerden konuları notion üzerinden işleyerek devam et 
-
-ex00'da inf,nav falan kavramlara da bak
