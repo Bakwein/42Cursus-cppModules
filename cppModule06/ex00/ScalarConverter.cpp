@@ -59,90 +59,40 @@ void ScalarConverter::convert(std::string &str)
             {
                 //std::cout << "INT" << std::endl;
                 intValue = std::atoi(str.c_str());
-                floatValue = static_cast<float>(intValue);
-                doubleValue = static_cast<double>(intValue);
-                charValue = static_cast<char>(intValue);
+                printChar(intValue);
+                printInt(intValue);
+                printFloat(intValue);
+                printDouble(intValue);
             }
             else if(i == 2)
             {
                 //std::cout << "DOUBLE" << std::endl;
                 doubleValue = atof(str.c_str());
-                intValue = static_cast<int>(doubleValue);
-                floatValue = static_cast<float>(doubleValue);
-                charValue = static_cast<char>(doubleValue);
+                printChar(doubleValue);
+                printInt(doubleValue);
+                printFloat(doubleValue);
+                printDouble(doubleValue);
             }
             else if(i == 3)
             {
-                //float f = atof(str.c_str());
                 //std::cout << "FLOAT" << std::endl;
                 floatValue = atof(str.c_str());
-                doubleValue = static_cast<double>(floatValue);
-                intValue = static_cast<int>(floatValue);
-                charValue = static_cast<char>(floatValue); //not sure for this
+                printChar(floatValue);
+                printInt(floatValue);
+                printFloat(floatValue);
+                printDouble(floatValue);
             }
             else if(i == 4)
             {
                 //std::cout << "CHAR" << std::endl;
                 charValue = str[0];
-                intValue = static_cast<int>(charValue);
-                doubleValue = static_cast<double>(charValue);
-                floatValue = static_cast<float>(charValue);
+                printChar(charValue);
+                printInt(charValue);
+                printFloat(static_cast<int>(charValue));
+                printDouble(static_cast<int>(charValue));
             }
             break;
         }
-    }
-
-    //std::cout << "***" << "\n" << charValue << "\n" << intValue << "\n" << doubleValue << "\n" << floatValue << "\n***" << std::endl;
-    //std::cout << "char value:" << charValue << std::endl;
-
-
-    std::cout << "char: ";
-    if((charValue>= 32 && charValue <=47) || (charValue >= 58 && charValue <= 126))
-        std::cout << "'" << charValue << "'" << std::endl;
-    else if(charValue < 32 || charValue > 126 || (charValue >= 48 && charValue <= 57))
-    {
-        std::cout << "Non displayable" << std::endl;
-    }
-    else
-    {
-        std::cout << "impossible" << std::endl;
-    }
-
-    std::cout << "int: ";
-    if(intValue >= INT_MIN && intValue <= INT_MAX)
-        std::cout << intValue << std::endl;
-    else
-        std::cout << "impossible" << std::endl;
-
-
-    //std::cout << FLT_MIN <<" " <<-FLT_MIN<<" "<< DBL_MIN<< " "<< -DBL_MIN << std::endl;
-    std::cout << "float: ";
-    //std::cout << "floatValue:" << floatValue <<  " " << (floatValue < 0) <<" " <<(floatValue * -1 >= -FLT_MIN) <<" "<<(floatValue >= FLT_MIN) <<" " <<(floatValue <= FLT_MAX) << std::endl;
-    std::cout << (floatValue >= -FLT_MIN && floatValue <= FLT_MAX) << " " << (floatValue >= FLT_MIN) << " "<<(floatValue <= FLT_MAX) << std::endl;
-    if((floatValue >= -FLT_MIN && floatValue <= FLT_MAX) || (floatValue < 0 && floatValue * -1 >= -FLT_MIN && floatValue <= FLT_MAX))
-    if(floatValue >= -FLT_MIN && floatValue <= FLT_MAX)
-    {
-        if(intValue == floatValue)
-            std::cout << floatValue << ".0f" << std::endl;
-        else
-            std::cout << floatValue << "f" << std::endl;
-    }
-    else
-    {
-        std::cout << "impossible" << std::endl;
-    }
-    std::cout << "double: ";
-    std::cout << "doubleValue:" << doubleValue << " " << (doubleValue < 0) << " " << (doubleValue * -1 >= -DBL_MIN) << " " <<(doubleValue >= DBL_MIN) <<" " << (doubleValue <= DBL_MAX) << " " << std::endl;
-    if((doubleValue >= -DBL_MIN && doubleValue <= DBL_MAX) || (doubleValue < 0 && doubleValue * -1 >= -DBL_MIN && doubleValue <= DBL_MAX))
-    {
-        if(doubleValue - int(doubleValue) == 0)
-            std::cout << doubleValue << ".0" << std::endl;
-        else
-            std::cout << doubleValue << std::endl;
-    }
-    else
-    {
-        std::cout << "impossible" << std::endl;
     }
 }
 
@@ -235,7 +185,6 @@ int ScalarConverter::isDouble(std::string &str)
     return (0);
 }
 
-// KONTROL LAZİM
 int ScalarConverter::isInt(std::string &str)
 {
     int i = 0;

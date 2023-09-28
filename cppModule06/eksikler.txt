@@ -1,7 +1,5 @@
 ex00 tamam gibi e'li kısımın gerekip gerekmeyeceğine bak
-ex00'da inf,nav falan kavramlara da bak
-
-ex00'da ARIZA VAR!!!!!!!!!!!
+ex00'da inf,nav falan kavramlara da bak!!!!(HATA VAR)
 
 ex01,ex02 tamma gibi
 

@@ -6,6 +6,7 @@
 #include <cmath>
 #include <climits>
 #include <float.h>
+#include <exception>
 
 
 # define BLACK        "\033[0;30m"
@@ -93,6 +94,92 @@ class ScalarConverter
         static int control(std::string &str);
         static int dif(std::string &str);
 
+        template <typename T>
+        static void printChar(T charValue)
+        {
+            std::cout << "char: ";
+            if((charValue>= 32 && charValue <=47) || (charValue >= 58 && charValue <= 126))
+                std::cout << "'" << static_cast<char>(charValue) << "'" << std::endl;
+            else if(charValue < 32 || charValue > 126 || (charValue >= 48 && charValue <= 57))
+            {
+                std::cout << "Non displayable" << std::endl;
+            }
+            else
+            {
+                std::cout << "impossible" << std::endl;
+            }
+        }
+
+        template <typename T>
+        static void printInt(T intValue)
+        {
+            std::cout << "int: ";
+            if(intValue >= INT_MIN && intValue <= INT_MAX)
+                std::cout << static_cast<int>(intValue) << std::endl;
+            else
+                std::cout << "impossible" << std::endl;
+        }
+
+        template <typename T>
+        static void printFloat(T floatValue)
+        {
+            std::cout << "float: ";
+            floatValue = static_cast<float>(floatValue);
+            if(floatValue - int(floatValue) == 0)
+                std::cout << floatValue << ".0f" << std::endl;
+            else
+                std::cout << floatValue << "f" << std::endl;
+        }
+
+        template <typename T>
+        static void printDouble(T doubleValue)
+        {
+            std::cout << "double: ";
+            doubleValue = static_cast<double>(doubleValue);
+            if(doubleValue - int(doubleValue) == 0)
+                std::cout << doubleValue << ".0" << std::endl;
+            else
+                std::cout << doubleValue << std::endl;
+            
+        }
+
+
+        /*class intCastError : std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return("int cast error!");
+                }
+        };
+
+        class doubleCastError : std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return("double cast error!");
+                }
+        };
+
+        class floatCastError : std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return("float cast error!");
+                }
+        };
+
+        class charCastError : std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return("char cast error!");
+                }
+        };
+*/
 };
 
 #endif
