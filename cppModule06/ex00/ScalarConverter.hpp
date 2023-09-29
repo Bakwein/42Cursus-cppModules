@@ -142,44 +142,6 @@ class ScalarConverter
                 std::cout << doubleValue << std::endl;
             
         }
-
-
-        /*class intCastError : std::exception
-        {
-            public:
-                virtual const char* what() const throw()
-                {
-                    return("int cast error!");
-                }
-        };
-
-        class doubleCastError : std::exception
-        {
-            public:
-                virtual const char* what() const throw()
-                {
-                    return("double cast error!");
-                }
-        };
-
-        class floatCastError : std::exception
-        {
-            public:
-                virtual const char* what() const throw()
-                {
-                    return("float cast error!");
-                }
-        };
-
-        class charCastError : std::exception
-        {
-            public:
-                virtual const char* what() const throw()
-                {
-                    return("char cast error!");
-                }
-        };
-*/
 };
 
 #endif

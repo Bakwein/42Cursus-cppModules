@@ -58,6 +58,12 @@ void ScalarConverter::convert(std::string &str)
             if(i == 1)
             {
                 //std::cout << "INT" << std::endl;
+                double test_double = std::atof(str.c_str());
+                if(test_double > INT_MAX || test_double <INT_MIN)
+                {
+                    std::cout << YELLOW << "INT_MAX - INT_MIN error!" << RESET << std::endl;
+                    exit(0);
+                }
                 intValue = std::atoi(str.c_str());
                 printChar(intValue);
                 printInt(intValue);
@@ -129,12 +135,50 @@ int ScalarConverter::isChar(std::string &str)
 int ScalarConverter::isFloat(std::string &str)
 {
     if(str[str.length()-1] != 'f' 
-    || str[str.length()-1] == '.'
-    || str[0] == '.' 
-    || str.find(".") == str.length() -2  // cuz of f
-    || str.rfind(".") != str.find(".")) // count is not working
+    || str[str.length()-1] == '.'  // cuz of f
+    || str.rfind(".") != str.find(".")) // multi .
     {
         return(0);
+    }
+    else if(str[str.length()-2] == '.')
+    {
+        int id = 0;
+        while(str[id] <= 32)
+        {
+            id++;
+        }
+        if(str[id] == '-' || str[id] == '+')
+        {
+            id++;
+        }
+        while(str[id] >= '0' && str[id] <= '9')
+        {
+            id++;
+        }
+        if(str[id] == '.' || str[id+1] == 'f')
+            return (1);
+        return (0);
+    }
+    else if(str[0] == '.' || ((str[0] == '+' || str[0] == '-') && str[1] == '.'))
+    {
+        int id2 = 0;
+        if(str[id2] == '+' || str[id2] == '-')
+        {
+            id2++;
+        }
+        if(str[id2] == '.')
+        {
+            id2++;
+        }
+        while(str[id2] >= '0' && str[id2] <= '9')
+        {
+            id2++;
+        }
+        if(str[id2] == 'f')
+            id2++;
+        if(id2 == int(str.length()))
+            return(1);
+        return (0);
     }
     int i = 0;
     int len = str.length();
@@ -146,7 +190,7 @@ int ScalarConverter::isFloat(std::string &str)
     {
         i++;
     }
-    while((str[i] >= '0' && str[i] <= '9')  || str[i] == '.')
+    while((str[i] >= '0' && str[i] <= '9')  || str[i] == '.' || str[i] == 'e' || str[i] == '+' || str[i] == '-')
     {
         i++;
     }
@@ -159,12 +203,48 @@ int ScalarConverter::isFloat(std::string &str)
 
 int ScalarConverter::isDouble(std::string &str)
 {
-    if(str[str.length()-1] == '.'
-    || str[0] == '.' 
-    || str.find(".") == str.length() - 1 // f X 
-    || str.rfind(".") != str.find(".")) // count is not working
+    if(str.rfind(".") != str.find(".")) // multible .
     {
         return(0);
+    }
+    else if(str[str.length()-1] == '.') //1.3
+    {
+        int id = 0;
+        while(str[id] <= 32)
+        {
+            id++;
+        }
+        if(str[id] == '-' || str[id] == '+')
+        {
+            id++;
+        }
+        while(str[id] >= '0' && str[id] <= '9')
+        {
+            id++;
+        }
+        if(str[id] == '.')
+            return(1);
+        return (0);
+        
+    }
+    else if(str[0] == '.' || ((str[0] == '+' || str[0] == '-') && str[1] == '.'))
+    {
+        int id2 = 0;
+        if(str[id2] == '+' || str[id2] == '-')
+        {
+            id2++;
+        }
+        if(str[id2] == '.')
+        {
+            id2++;
+        }
+        while(str[id2] >= '0' && str[id2] <= '9')
+        {
+            id2++;
+        }
+        if(id2 == int(str.length()))
+            return(1);
+        return (0);
     }
     int i = 0;
     int len = str.length();
@@ -176,7 +256,7 @@ int ScalarConverter::isDouble(std::string &str)
     {
         i++;
     }
-    while((str[i] >= '0' && str[i] <= '9')  || str[i] == '.')
+    while((str[i] >= '0' && str[i] <= '9')  || str[i] == '.' || str[i] == 'e' || str[i] == '+' || str[i] == '-' )
     {
         i++;
     }
@@ -186,7 +266,7 @@ int ScalarConverter::isDouble(std::string &str)
 }
 
 int ScalarConverter::isInt(std::string &str)
-{
+{   
     int i = 0;
     int len = str.length();
     while(str[i] <= 32)

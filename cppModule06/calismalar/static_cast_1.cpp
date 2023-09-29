@@ -55,6 +55,56 @@ int main()
 
     double f1 = static_cast<float>(-2);
     std::cout << "f1: " << f1 << std::endl;
+
+
+    std::cout << "---------------------------" << std::endl;
+    std::cout << static_cast<int>(+3.) << std::endl;
+    std::cout << typeid(3.f).name() << std::endl;
+
+    std::cout << "\n";
+
+    std::cout << static_cast<int>(00032.) << std::endl;
+    std::cout << typeid(00032.).name() << std::endl;
+    
+    std::cout << "\n";
+    std::cout << static_cast<int>(00032) << std::endl;
+    std::cout << typeid(00032).name() << std::endl;
+    
+    std::cout << "\n";
+    std::cout << static_cast<int>(00000) << std::endl;
+    std::cout << typeid(00000).name() << std::endl;
+    
+    std::cout << "\n*";
+    std::cout << static_cast<int>(+00000000000000000000000000000) << std::endl;
+    std::cout << typeid(+00000000000000000000000000000).name() << std::endl;
+    std::cout << static_cast<int>(-00000000000000000000000000000) << std::endl;
+    std::cout << typeid(-00000000000000000000000000000).name() << std::endl;
+    std::cout << static_cast<int>(00000000000000000000000000000) << std::endl;
+    std::cout << typeid(00000000000000000000000000000).name() << std::endl;
+
+    std::cout << "\n";
+    std::cout << static_cast<int>(000000000000000000000000000001) << std::endl;
+    std::cout << typeid(000000000000000000000000000001).name() << std::endl;
+
+    std::cout << "\n";
+    std::cout << static_cast<int>(1872648712647816287461287.f) << std::endl;
+    std::cout << typeid(1872648712647816287461287.f).name() << std::endl;
+
+    std::cout << "\n";
+    //std::cout << static_cast<double>(1872648712647816287461287) << std::endl;
+    //std::cout << typeid(1872648712647816287461287).name() << std::endl;
+
+    std::cout << "\n";
+    std::cout << static_cast<float>( 1.25125e+13) << std::endl;
+    std::cout << typeid( 1.25125e+13).name() << std::endl;
+
+    std::cout << "\n";
+    std::cout << int(2147483648.2) << std::endl;
+
+  //2147483649
+    std::cout << "\n";
+    std::cout << static_cast<float>( -2147483649) << std::endl;
+    std::cout << typeid(2147483649).name() << std::endl;
   }
   
 }
