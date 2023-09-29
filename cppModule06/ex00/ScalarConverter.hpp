@@ -142,6 +142,15 @@ class ScalarConverter
                 std::cout << doubleValue << std::endl;
             
         }
+
+        class unexpectedValue : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return ("Unexpected value detected!");
+                }
+        };
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 class Base {
 public:
@@ -56,7 +57,7 @@ int main()
     double f1 = static_cast<float>(-2);
     std::cout << "f1: " << f1 << std::endl;
 
-
+  /*
     std::cout << "---------------------------" << std::endl;
     std::cout << static_cast<int>(+3.) << std::endl;
     std::cout << typeid(3.f).name() << std::endl;
@@ -105,6 +106,21 @@ int main()
     std::cout << "\n";
     std::cout << static_cast<float>( -2147483649) << std::endl;
     std::cout << typeid(2147483649).name() << std::endl;
+
+
+    std::cout << "\n*";
+    std::cout << static_cast<int>(std::stof("nan")) << std::endl;
+    std::cout << static_cast<int>(std::stof("nanf")) << std::endl;
+
+    std::cout << "\n*";
+    std::cout << static_cast<int>(std::stof("inf")) << std::endl;
+    std::cout << static_cast<int>(std::stof("inff")) << std::endl;
+
+    //124124f
+    std::cout << "\n";
+    std::string xd = "asdhasdh";
+    std::cout << xd.find(".") << " " << int(xd.find(".")) << std::endl;
+    */
   }
   
 }

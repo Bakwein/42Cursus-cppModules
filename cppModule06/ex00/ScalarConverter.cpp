@@ -45,7 +45,7 @@ The reinterpret_cast operator is used to cast between any two types, regardless 
 
 void ScalarConverter::convert(std::string &str)
 {
-    long long intValue = 0;
+    int intValue = 0;
     float floatValue= 0.0f;
     double doubleValue = 0.0;
     char charValue = 0;
@@ -104,20 +104,28 @@ void ScalarConverter::convert(std::string &str)
 
 int ScalarConverter::control(std::string &str)
 {
-    if(str == "inf" || str == "inff" || str == "infl")
+    if(str == "-inff" || str == "-inf" )
     {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << "inff" << std::endl;
-        std::cout << "double: " << "inf" << std::endl;
-        exit (0);
+        std::cout<<"char: impossible"<<std::endl;
+        std::cout<<"int: impossible"<<std::endl;
+        std::cout<<"float: -inff"<<std::endl;
+        std::cout<<"double: -inf"<<std::endl;
+        exit(0);
     }
-    else if(str == "-inf" || str == "-inff" || str == "-infl")
+    else if(str == "+inff" || str == "+inf" )
     {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << "-inff" << std::endl;
-        std::cout << "double: " << "-inf" << std::endl;
+        std::cout<<"char: impossible"<<std::endl;
+        std::cout<<"int: impossible"<<std::endl;
+        std::cout<<"float: +inff"<<std::endl;
+        std::cout<<"double: +inf"<<std::endl;
+        exit(0);
+    }
+    else if(str == "nan" || str == "nanf")
+    {
+        std::cout<<"char: impossible"<<std::endl;
+        std::cout<<"int: impossible"<<std::endl;
+        std::cout<<"float: nanf"<<std::endl;
+        std::cout<<"double: nan"<<std::endl;
         exit(0);
     }
     return (0);
@@ -126,7 +134,7 @@ int ScalarConverter::control(std::string &str)
 int ScalarConverter::isChar(std::string &str)
 {
     int len = str.length();
-    if(len == 1 && isprint(str[0]))
+    if(len == 1 && (str[0] >= 32 && str[0] <= 126))
         return (1);
     return (0);
 }
@@ -136,7 +144,8 @@ int ScalarConverter::isFloat(std::string &str)
 {
     if(str[str.length()-1] != 'f' 
     || str[str.length()-1] == '.'  // cuz of f
-    || str.rfind(".") != str.find(".")) // multi .
+    || str.rfind(".") != str.find(".")
+    || int(str.find(".")) == -1) // multi .
     {
         return(0);
     }
@@ -203,7 +212,7 @@ int ScalarConverter::isFloat(std::string &str)
 
 int ScalarConverter::isDouble(std::string &str)
 {
-    if(str.rfind(".") != str.find(".")) // multible .
+    if(str.rfind(".") != str.find(".") && int(str.find(".")) == -1) // multible .
     {
         return(0);
     }
@@ -290,9 +299,7 @@ int ScalarConverter::isInt(std::string &str)
 int ScalarConverter::dif(std::string &str)
 {
     (void)str; //for flags
-    std::cout << "char: infinity" << std::endl;
-    std::cout << "int: infinity" << std::endl;
-    std::cout << "float: infinity" << std::endl;
-    std::cout << "double: infinity" << std::endl;
-    exit(0);
+    throw unexpectedValue();
+    //throw std::exception();
+    //exit(0);
 }

@@ -11,7 +11,7 @@ int main()
     
     Base *ptr2 = generate();
     
-    std::cout << "\n";
+    std::cout << "---------------------\n";
 
     identify(ptr1);
     std::cout << "\n";
