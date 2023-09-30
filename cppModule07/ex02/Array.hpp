@@ -66,34 +66,43 @@ class Array
             return (*this);
         }
 
+        /*
+         cannot assign to return value because function 'operator[]' returns a const value
+        numbers[i] = value;*/ 
+        
         T &operator[](unsigned int index)
-        {
-            /*if(index > this->size || ptr == NULL || 0 > index)
-               throw std::exception();
-            return(ptr[index]);
-            */
-
+        {   
+            
             if(index >= 0 && index < _size)
 		   		return(ptr[index]);
 		    else
 		   		throw std::exception();
          
         }
+        
 
+
+        /*
+        error: no viable overloaded operator[] for type 'const Array<int>'
+                    ptr[i] = a[i];
+        */
         const T& operator[](unsigned int index) const
         {
-            /*if(index > this->size || 0 > index  || ptr == NULL)
-                throw std::exception();
-            return(ptr[index]);
-			*/
 			if(index >= 0 && index < _size)
 			   	return(ptr[index]);
 			else
 				throw std::exception();
         }
+        
+        
+
+       ~Array(void)
+       {
+        delete[] ptr;
+       } 
 
 
-        unsigned int size()const{return _size;}
+        unsigned int getSize()const{return _size;}
         void setSize(unsigned int size){this->_size = size;}
 
 
@@ -102,10 +111,10 @@ class Array
         class InvalidRequest : public std::exception
         {
             public:
-            virtual const char* what()const throw()
-            {
-                return("Invalid request detected!");
-            }
+                virtual const char* what()const throw()
+                {
+                    return("Invalid request detected!");
+                }
         };
 };
 
