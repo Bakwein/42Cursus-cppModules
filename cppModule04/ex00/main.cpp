@@ -54,6 +54,5 @@ int main(void)
 	delete wa;
 	delete wc;
 
-	 system("leaks animal"); // Bellek sızıntısı test
 	return 0;
 }

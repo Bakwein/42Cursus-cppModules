@@ -27,7 +27,7 @@ public:
 
     WrongAnimal& operator=(WrongAnimal const& wanimal);
 
-    virtual ~WrongAnimal();
+    ~WrongAnimal();
 
     void setType(const std::string& type);
     
