@@ -51,8 +51,14 @@ int main(void)
 	wc->makeSound();
 
 	std::cout << std::endl;
+
+	/*WrongCat *wc1 = new WrongCat();
+	wc1->makeSound();
+	std::cout << std::endl;*/
+
 	delete wa;
 	delete wc;
+	//delete wc1;
 
 	return 0;
 }

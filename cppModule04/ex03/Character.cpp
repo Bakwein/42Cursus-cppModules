@@ -1,71 +1,62 @@
 #include "Character.hpp"
 
-Character::Character(void) : name("default")
+Character::Character( std::string const &name ) : _name(name)
 {
-    for(int i = 0; i < 4;i++)
-        this->inv[i] = NULL;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
-Character::Character(std::string const &name) : name(name)
+Character::Character( Character const &rhs ) : _name(rhs._name)
 {
-    for(int i = 0; i < 4;i++)
-        this->inv[i] = NULL;
+	for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
+	*this = rhs;
 }
 
-Character::Character(Character const &rhs) : name(rhs.getName())
+Character::~Character( void )
 {
-    *this = rhs;
+	for (int i = 0; i < 4; i++)
+		delete this->_inventory[i];
 }
 
-Character::~Character()
+Character	&Character::operator=( Character const &rhs )
 {
-    for(int i = 0; i < 4 ; i++)
-        delete inv[i];
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		for (int i = 0; i < 4; i++)
+			this->_inventory[i] = rhs._inventory[i];
+	}
+	return (*this);
 }
 
-Character &Character::operator=(Character const &rhs)
+std::string const	&Character::getName( void ) const
 {
-    if(this != &rhs)
-    {
-        this->name = rhs.getName();
-        for(int i = 0; i < 4 ; i++)
-        {
-            this->inv[i] = rhs.inv[i];
-        }
-    }
-    return (*this);
+	return (this->_name);
 }
 
-std::string const &Character::getName()const
+void	Character::equip( AMateria *m)
 {
-    return (this->name);
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			return ;
+		}
 }
 
-void Character::equip(AMateria* m)
+void	Character::unequip( int idx )
 {
-    for(int i = 0; i < 4 ; i++)
-    {
-        if(this->inv[i] == NULL)
-        {
-            this->inv[i] = m;
-            return;
-        }
-    }
+	if (this->_inventory[idx])
+	{
+		this->_inventory[idx] = NULL;
+	}
 }
 
-void Character::unequip(int idx)
+void	Character::use( int idx, ICharacter &target )
 {
-    if(inv[idx] != NULL)
-    {
-        delete inv[idx];
-        inv[idx] = NULL;
-    }
-}
-
-void Character::use(int idx, ICharacter& target)
-{
-    if(this->inv[idx])
-    {
-        this->inv[idx]->use(target);
-    }
+	if (this->_inventory[idx])
+	{
+		this->_inventory[idx]->use(target);
+	}
 }

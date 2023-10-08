@@ -1,11 +1,4 @@
-virtual kavramı
+genel tekrar
+valgrind kontrol
 
-wronglardaki virtuallar
-
-bazı yerlerde türkçe yorum satırları
-
-hepsine baştan güzel tekrar lazim
-
-ex03 calisma kontrol
-
-github evo page control
+github evo page control - copy mantıgına bak

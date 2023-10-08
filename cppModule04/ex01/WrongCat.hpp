@@ -28,11 +28,11 @@ public:
 
     WrongCat& operator=(WrongCat const& wcat);
 
-    virtual ~WrongCat();
+    ~WrongCat();
 
     std::string const& getType() const;
 
-    virtual void makeSound() const;
+    void makeSound() const;
 };
 
 #endif

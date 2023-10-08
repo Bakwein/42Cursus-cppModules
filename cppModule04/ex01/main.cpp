@@ -29,7 +29,7 @@ Animal *animals[N];
 
 for (int i = 0; i < N; i++)
 {
-	if (i & 1) // 1-3-5-7
+	if (i % 2)
 		animals[i] = new Dog();
 	else
 		animals[i] = new Cat();
@@ -38,13 +38,13 @@ for (int i = 0; i < N; i++)
 	delete animals[i];
 
 std::cout << std::endl << std::endl;
-Dog* d1 = new Dog(); // const yaparsam brain kısmını degistiremem
+Dog* d1 = new Dog();
 d1->setIdea(0,"heyo!");
 d1->setIdea(1,"Hrrr.");
+d1->setIdea(87,"wow :o");
 d1->printIdeas();
 
 delete d1;
-system("leaks brain");
 
 return 0;
 }

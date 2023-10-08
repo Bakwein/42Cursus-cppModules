@@ -9,19 +9,18 @@ class ICharacter;
 
 class AMateria
 {
-    protected:
-        std::string type;
-    public:
-    AMateria(void);
-    AMateria(AMateria const &rhs);
-    virtual ~AMateria(void);
+	protected:
+		std::string	type;
+	public:
+		AMateria( void );
+		AMateria( std::string const &type );
+		AMateria( AMateria const &rhs );
+		virtual	~AMateria( void );
 
-    AMateria(std::string const & type);
-    //[...]
+		std::string const	&getType() const;
 
-    std::string const & getType() const; //Returns the materia type
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+		virtual AMateria	*clone() const = 0;
+		virtual void		use( ICharacter &target );
 };
 
 #endif

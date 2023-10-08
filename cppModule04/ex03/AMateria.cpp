@@ -1,21 +1,33 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void) : type("default"){}
-
-AMateria::AMateria(AMateria const &rhs) : type(rhs.getType()){}
-
-AMateria::~AMateria(void){}
-
-AMateria::AMateria(std::string const &type) :type(type){}
-
-std::string  const& AMateria::getType()const{return type;}
-
-AMateria *AMateria::clone()const
+AMateria::AMateria( void ) : type("Default")
 {
-    return((AMateria*)this);
 }
 
-void AMateria::use(ICharacter& target)
+AMateria::AMateria( std::string const &type ) : type(type)
 {
-    std::cout << "AMateria " << this->type << " used on "
- << target.getName() << std::endl;}
+}
+
+AMateria::AMateria( AMateria const &rhs ) : type(rhs.type)
+{
+}
+
+AMateria::~AMateria( void )
+{
+}
+
+std::string const	&AMateria::getType( void ) const
+{
+	return (this->type);
+}
+
+AMateria	*AMateria::clone( void ) const
+{
+	return ((AMateria*)this);
+}
+
+void	AMateria::use( ICharacter &target )
+{
+	std::cout << "AMateria " << this->type << " used on "\
+		<< target.getName() << std::flush << std::endl;
+}

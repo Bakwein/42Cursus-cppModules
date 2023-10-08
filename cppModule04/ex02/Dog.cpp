@@ -40,7 +40,7 @@ Dog& Dog::operator=(Dog const& dog)
 }
 
 /* Destructor */
-Dog::~Dog() { std::cout << "Dog destructor called" << std::endl; delete _brain; } // delete sebebi cat'deki ile aynı
+Dog::~Dog() { std::cout << "Dog destructor called" << std::endl; delete _brain; } 
 
 /* Getters */
 std::string const& Dog::getIdea(int i) const { return _brain->getIdea(i); }

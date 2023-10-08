@@ -40,7 +40,7 @@ Cat& Cat::operator=(Cat const& cat)
 }
 
 /* Destructor */ 
-Cat::~Cat() { std::cout << "Cat destructor called" << std::endl; delete _brain; } // delete sebebi oluşturduğumuz nesneyi leak vermemesi için kaldırmak
+Cat::~Cat() { std::cout << "Cat destructor called" << std::endl; delete _brain; }
 
 /* Getters */
 std::string const& Cat::getIdea(int i) const { return _brain->getIdea(i); }

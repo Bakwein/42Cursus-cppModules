@@ -1,59 +1,58 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void)
+MateriaSource::MateriaSource( void )
 {
-    for(int i = 0;i < 4;i++)
+	for (int i = 0; i < 4; i++)
+		this->_materias[i] = NULL;
+}
+
+MateriaSource::MateriaSource( MateriaSource const &rhs )
+{
+    for (int i = 0;i <4;i++)
+        this->_materias[i] = rhs._materias[i];
+	*this = rhs;
+}
+
+MateriaSource::~MateriaSource( void )
+{
+    for(int i = 0;i < 4; i++)
     {
-        this->materias[i] = NULL;
+        delete this->_materias[i];
     }
 }
 
-MateriaSource::MateriaSource(MateriaSource const &rhs)
+MateriaSource	&MateriaSource::operator=( MateriaSource const &rhs )
 {
-    *this = rhs;
+	if (this != &rhs)
+		for (int i = 0; i < 4; i++)
+			this->_materias[i] = rhs._materias[i];
+	return (*this);
 }
 
-MateriaSource::~MateriaSource(void)
+void	MateriaSource::learnMateria( AMateria* materia)
 {
-    //???
-    /*
-    for(int i = 0;i < 4 ; i++)
-    {
-        delete this->materias[i];
-    }
-    */
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_materias[i] == NULL)
+		{
+			this->_materias[i] = materia;
+			return ;
+		}
+	}
 }
 
-MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
+AMateria	*MateriaSource::createMateria( std::string const &type )
 {
-    if(this != &rhs)
-    {
-        for(int i = 0; i < 4 ; i++)
-        {
-            this->materias[i] = rhs.materias[i];
-        }
-    }
-    return(*this);
+	for (int i = 0; i < 4; i++)
+		if (this->_materias[i] && this->_materias[i]->getType() == type)
+			return (this->_materias[i]->clone());
+	return (NULL);
 }
 
-void MateriaSource::learnMateria(AMateria *met)
+AMateria	*MateriaSource::getMateria( std::string const &type )
 {
-    for(int i = 0; i < 4 ; i++)
-    {
-        if(materias[i] == NULL)
-        {
-            materias[i] = met;
-            return ;
-        }
-    }
-}
-
-AMateria *MateriaSource::createMateria(std::string const &type)
-{
-    for(int i = 0; i < 4 ; i++)
-    {
-        if(this->materias[i] && this->materias[i]->getType() == type)
-            return(this->materias[i]);
-    }
-    return (NULL);
+	for (int i = 0; i < 4; i++)
+		if (this->_materias[i] && this->_materias[i]->getType() == type)
+			return (this->_materias[i]);
+	return (NULL);
 }
