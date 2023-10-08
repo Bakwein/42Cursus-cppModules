@@ -1,4 +1,0 @@
-genel tekrar
-valgrind kontrol
-
-github evo page control - copy mantıgına bak
