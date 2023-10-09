@@ -15,13 +15,13 @@ class Span
         ~Span();
         Span& operator=(Span const& rhs);
 
-        void printVector(std::vector<int> v);
+        void printVector(void)const;
         void addNumber(int num);
-        void addNumber(std::vector<int>::iterator begin, std::vector<int> end);
+        void addNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
         long int shortestSpan()const;
         long int longestSpan()const;
 
-        void editValue(int index, int value);
+        void editValue(unsigned int index, int value);
 
         unsigned int getN()const;
         void setN(unsigned int n);

@@ -1,3 +1,8 @@
 unordered öğren ex00'a örnek ekle
 
+ex00 main falan tekrar bak -exception ekle duruma göre
+
+ex01 tamam norm kontrolleri bak, fazla fonk vs.
+
+
 https://github.com/BekxFR/CPP_Pool/blob/main/cpp08/ex01/sources/Span.cpp
