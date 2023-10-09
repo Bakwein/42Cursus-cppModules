@@ -1,0 +1,9 @@
+SORU -> std::stack<T, std::vector<T>  burada vector ne işe yaramaktadır
+std::stack sınıfı, içindeki verileri saklamak için genellikle varsayılan olarak std::deque (double-ended queue) konteynerini kullanır. Ancak, std::stack sınıfının ikinci bir konteyner türü ile kullanılabilmesi için kullanıcı tarafından özelleştirilebilir.
+
+Örneğinizde, std::stack sınıfı std::vector konteynerini kullanacak şekilde özelleştirilmiş. Bu, std::stack'in içindeki verilerin std::vector ile saklandığı anlamına gelir. std::vector konteyneri, dinamik bir dizi gibi davranır ve verileri bellekte ardışık bir şekilde saklar. Bu, verilere hızlı erişim sağlar, ancak öğeler eklenip çıkarıldığında bazı maliyetlerle (yer değiştirme, yeniden boyutlandırma) gelir.
+
+Bu tür bir özelleştirme, std::stack sınıfını kullanırken altta yatan veri yapısını belirli bir ihtiyaca göre değiştirmek istediğinizde kullanışlıdır. Özellikle belirli bir performans veya bellek kullanımı gereksinimine sahipseniz, std::stack sınıfını std::vector veya başka bir konteyner türü ile özelleştirebilirsiniz.
+
+Özetle, std::stack sınıfının ikinci şablon parametresi (std::vector<T>), içindeki verilerin nasıl saklandığını belirler ve std::stack sınıfının kullanımı sırasında bu özelleştirmenin etkilerini gözlemleyebilirsiniz.
+
