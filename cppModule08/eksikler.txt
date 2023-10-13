@@ -1,15 +1,5 @@
-iterator kavramı ve cesitleri
-
-unordered öğren ex00'a örnek ekle
-
-ex00 main falan tekrar bak -exception ekle duruma göre
-
-ex01 tamam norm kontrolleri bak, fazla fonk vs.
-
-ex02 tekrar lazim
+bilgiler.txt ve bunu sil!!!!!!!!!!!!!
 
 pushlarken yorum satırlarını sil
 
-https://github.com/BekxFR/CPP_Pool/blob/main/cpp08/ex01/sources/Span.cpp
-
-şu kütüphanelerin tam olarak ne işe yaradığına bak - //#include <deque>
+valgrind kontrol

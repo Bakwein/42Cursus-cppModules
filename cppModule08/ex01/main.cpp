@@ -63,7 +63,7 @@ int main()
         {
             Span s = Span(1);
             s.longestSpan();
-            s.shortestSpan();
+            //s.shortestSpan();
         }
         catch(const std::exception& e)
         {

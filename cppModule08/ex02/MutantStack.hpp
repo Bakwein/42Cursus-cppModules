@@ -2,7 +2,7 @@
 #define MUTANT_STACK
 
 #include <stack>
-//#include <deque>
+#include <deque>
 
 /*
 container_type
@@ -10,6 +10,31 @@ container_type
 The container_type member type of a standard library container template is the type of the underlying container used by the template. For example, the container_type member type of the std::stack template is std::deque<T>
 */
 //last in first out-LIFO
+
+/*
+Stack sınıfının template <class T, class Container = std::deque<T>> sözdizimi, deque'i temel kapsayıcı olarak belirtir. Bu, stack nesnesinin, deque'in tüm özelliklerini miras aldığını gösterir.
+
+class MutantStack : public std::stack<T, container> ifadesi, MutantStack sınıfının std::stack sınıfından miras aldığını belirtir. Bu, MutantStack'in std::stack'in işlevselliğini devraldığı ve özelleştirebileceği anlamına gelir.
+
+Iterator:
+iterator, bir veri yapısı üzerinde gezinmek ve elemanları değiştirmek için kullanılır.
+Değiştirilebilir verilere erişim sağlar.
+Örneğin, bir dizi üzerinde dolaşırken, iterator kullanarak dizinin elemanlarını okuyabilir ve değiştirebilirsiniz.
+
+Const_iterator:
+const_iterator, bir veri yapısı üzerinde gezinirken elemanları değiştirmenize izin vermez.
+Sadece elemanları okumak için kullanılır.
+Bu, verilerin değiştirilmemesi gereken durumlarda kullanışlıdır.
+
+Reverse_iterator:
+reverse_iterator, bir veri yapısını tersten (sondan başa) dolaşmak için kullanılır.
+Bu, özellikle bir veri yapısının sonundan başlayarak geriye doğru ilerlemeniz gereken durumlarda kullanışlıdır.
+
+Const_reverse_iterator:
+const_reverse_iterator, bir veri yapısını tersten dolaşırken elemanları değiştirmenize izin vermez.
+Sadece elemanları okumak için kullanılır ve tersten dolaşır.
+*/
+
 template<typename T, class container = std::deque<T> >
 class MutantStack : public std::stack<T, container>
 {
@@ -41,17 +66,3 @@ class MutantStack : public std::stack<T, container>
 #include "MutantStack.tpp"
 
 #endif
-
-
-/*
-Artık daha ciddi şeylere yönelme zamanı. Tuhaf bir şey geliştirelim.
-std::stack konteyneri çok hoş. Ne yazık ki yinelenemeyen tek STL Konteynerlerinden biridir. Bu çok kötü.
-Peki bunu neden kabul edelim? Özellikle de insanları katletme özgürlüğünü alabilirsek
-eksik özellikleri oluşturmak için orijinal yığın.
-Bu adaletsizliği onarmak için std::stack konteynerini yinelenebilir hale getirmelisiniz.
-Bir MutantStack sınıfı yazın. Bir std::stack cinsinden uygulanacaktır.
-Tüm üye işlevlerinin yanı sıra ek bir özellik de sunacak: yineleyiciler.
-Elbette her şeyin yolunda gittiğinden emin olmak için kendi testlerinizi yazıp teslim edeceksiniz.
-beklenen.
-
-*/

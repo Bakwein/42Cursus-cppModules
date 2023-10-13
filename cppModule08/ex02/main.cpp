@@ -15,6 +15,7 @@ int main()
 			std::cout << mstack.top() << std::endl;
 			mstack.pop();
 			std::cout << mstack.size() << std::endl;
+			std::cout << "\n";
 			mstack.push(3);
 			mstack.push(5);
 			mstack.push(737);
@@ -28,9 +29,6 @@ int main()
 				std::cout << *it << std::endl;
 				++it;
 			}
-			std::stack<int, std::list<int> > s1 = MutantStack<int,std::list<int> >();
-            std::stack<int, std::vector<int> > s2 = MutantStack<int,std::vector<int> >();
-            //std::stack<int, std::queue<int> > s3 = MutantStack<int,std::queue<int> >();
 			std::stack<int> s(mstack);
 		}
 		catch (const std::exception &e)
@@ -47,6 +45,7 @@ int main()
 			std::cout << mstack.back() << std::endl;
 			mstack.pop_back();
 			std::cout << mstack.size() << std::endl;
+			std::cout << "\n";
 			mstack.push_back(3);
 			mstack.push_back(5);
 			mstack.push_back(737);
@@ -205,6 +204,29 @@ int main()
 		{
 			std::cout << e.what() << std::endl;
 		}
+	}
+	std::cout << "\n--------------------------------------------------------\n";
+	{
+		try
+		{
+			MutantStack<int, std::vector<int> > mutantStack;
+			for (int i = 0; i < 5; ++i)
+			{
+				mutantStack.push(i);
+			}
+
+			std::cout << "normal iterator : ";
+			for (MutantStack<int, std::vector<int> >::iterator it = mutantStack.begin	(); it != mutantStack.end(); ++it)
+			{
+				std::cout << *it << " ";
+			}
+			std::cout << "\n";
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << e.what() << '\n';
+		}
+
 	}
 	return (0);
 }

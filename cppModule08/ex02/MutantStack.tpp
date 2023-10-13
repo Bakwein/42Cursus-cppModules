@@ -3,7 +3,6 @@
 
 #include "MutantStack.hpp"
 #include <iostream>
-//templatede class yerine typename ile dene
 
 template <typename T,class container>
 MutantStack<T,container>::MutantStack()
@@ -31,6 +30,9 @@ MutantStack<T,container> &MutantStack<T,container>::operator=(MutantStack<T,cont
     std::stack<T,container>::operator=(obj);
     return(*this);
 }
+/*
+c burada, std::stack sınıfının bir öğesi olan bir container nesnesine erişmek için kullanılır. std::stack sınıfı, bir container nesnesi kullanarak bir yığın veri yapısı sağlar. Bu container nesnesi, yığının elemanlarını depolamak için kullanılır. c öğesi, std::stack sınıfının bir üyesi olarak tanımlanır ve container nesnesine erişmek için kullanılır.
+*/
 
 template<typename T,class container>
 typename MutantStack<T,container>::iterator MutantStack<T,container>::begin()
@@ -79,7 +81,5 @@ typename MutantStack<T,container>::const_reverse_iterator MutantStack<T,containe
 {
     return this->c.crend();   
 }
-
-
 
 #endif
