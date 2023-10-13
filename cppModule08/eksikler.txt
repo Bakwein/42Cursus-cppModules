@@ -11,3 +11,5 @@ ex02 tekrar lazim
 pushlarken yorum satırlarını sil
 
 https://github.com/BekxFR/CPP_Pool/blob/main/cpp08/ex01/sources/Span.cpp
+
+şu kütüphanelerin tam olarak ne işe yaradığına bak - //#include <deque>

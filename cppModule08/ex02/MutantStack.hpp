@@ -2,6 +2,7 @@
 #define MUTANT_STACK
 
 #include <stack>
+//#include <deque>
 
 /*
 container_type
