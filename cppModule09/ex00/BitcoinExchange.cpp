@@ -10,7 +10,7 @@ BitcoinExchange::BitcoinExchange()
 BitcoinExchange::BitcoinExchange(char *av)
 {
     this->av_ = av;
-    std::cout << "BitcoinExchange char* const." << std::endl;
+    //std::cout << "BitcoinExchange char* const." << std::endl;
 }
 
 void BitcoinExchange::run()
@@ -51,10 +51,11 @@ void BitcoinExchange::readCSV()
             i++;
             continue;
         }
+        //date control
         int count = std::count(date.begin(), date.end(), '-');
         if(count != 2)
             throw FileSyntaxError();
-        //date control
+        
         year = date.substr(0, date.find("-"));
         std::string forM = date.substr(date.find("-")+ 1, date.length());
         month = forM.substr(0, forM.find("-"));
@@ -169,7 +170,6 @@ void BitcoinExchange::output()
         }
         date = line.substr(0, line.find(v)-1);
         price = line.substr(line.find(v) + 2, line.length());
-        std::cout << date << " " << price << std::endl;
         if(date.empty())
         {
             std::cout << "Error: bad input - date is empty => "<< line << std::endl;
@@ -189,20 +189,135 @@ void BitcoinExchange::output()
             i++;
             continue;
         }
+        //date kontrol
         int count = std::count(date.begin(), date.end(), '-');
-
-        // DATE - PRICE CONTROL
-
-        // DATE CONTROL
-
+        if(count != 2)
+        {
+            std::cout << "Error: bad input  => "<< line << std::endl;
+            continue;
+        }
+        year = date.substr(0, date.find("-"));
+        std::string forM = date.substr(date.find("-")+ 1, date.length());
+        month = forM.substr(0, forM.find("-"));
+        std::string forD = forM.substr(forM.find("-")+ 1, forM.length());
+        day = forD.substr(forD.find("-") + 1, forD.length());
+        if(year.length() != 4 || month.length() !=2 || day.length() != 2)
+        {
+            std::cout << "Error: bad input  => "<< line << std::endl;
+            continue;
+        }
+        for(int i = 0;i < int(year.length());i++)
+        {
+            if(!isdigit(year[i]))
+            {
+                std::cout << "Error: bad input  => "<< line << std::endl;
+                continue;
+            }
+        }
+        for(int i = 0;i < int(month.length());i++)
+        {
+            if(!isdigit(month[i]))
+            {
+                std::cout << "Error: bad input  => "<< line << std::endl;
+                continue;
+            }
+        }
+        for(int i = 0;i < int(day.length());i++)
+        {
+            if(!isdigit(day[i]))
+            {
+                std::cout << "Error: bad input  => "<< line << std::endl;
+                continue;
+            }
+        }
+        //span control
+        int y = std::stoi(year);
+        int m = std::stoi(month);
+        int d = std::stoi(day);
+        if(y>2023 || m>12 || m <1)
+        {
+            std::cout << "Error: bad input  => "<< line << std::endl;
+            continue;
+        }
+        if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
+        {
+            if(d > 31 || d < 1)
+            {
+                std::cout << "Error: bad input  => "<< line << std::endl;
+                continue;
+            }
+        }
+        else if(m == 4 || m == 6 || m == 9 || m == 11)
+        {
+            if(d > 30 || d < 1)
+            {
+                std::cout << "Error: bad input  => "<< line << std::endl;
+                continue;
+            }
+        }
+        else if(m == 2)
+        {  
+            // leap year
+            if(y % 4 == 0)
+            {
+                if(y % 100 == 0)
+                {
+                    if(y % 400 == 0)
+                    {
+                        if(d > 29 || d < 1)
+                        {
+                            std::cout << "Error: bad input  => "<< line << std::endl;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if(d > 28 || d < 1)
+                        {
+                            std::cout << "Error: bad input  => "<< line << std::endl;
+                            continue;
+                        }
+                    }
+                }
+                else
+                {
+                    if(d > 29 || d < 1)
+                    {
+                        std::cout << "Error: bad input  => "<< line << std::endl;
+                        continue;   
+                    }
+                }
+            }
+            {
+                if(d > 28 || d < 1)
+                {
+                    std::cout << "Error: bad input  => "<< line << std::endl;
+                    continue;
+                }
+            }
+        }
 
         // PRICE CONTROL
         
+        float d_ = std::stof(price);
+        if(d_ < 0)
+        {
+            std::cout << "Error: not a positive number." << std::endl;
+            continue;
+        }
+        else if(d_ > 1000)
+        {
+            std::cout << "Error: too large number." << std::endl;
+            continue;
+        }
 
 
 
 
-        // BURADAN SONRA ÇIKTI İÇİN DEVAM ET
+        // if there is not a problem
+        std::cout << "solution " << std::endl;
+        //lowerbound kullan!!!!!!
+        
     }
 
 }
@@ -226,7 +341,7 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& rhs)
 
 BitcoinExchange::~BitcoinExchange()
 {
-    std::cout << "BitcoinExchange destructor." << std::endl;
+    //std::cout << "BitcoinExchange destructor." << std::endl;
 }
 
 void BitcoinExchange::printMap(std::map<std::string,float> map)
