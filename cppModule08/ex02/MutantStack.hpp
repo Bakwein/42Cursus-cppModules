@@ -34,7 +34,7 @@ Const_reverse_iterator:
 const_reverse_iterator, bir veri yapısını tersten dolaşırken elemanları değiştirmenize izin vermez.
 Sadece elemanları okumak için kullanılır ve tersten dolaşır.
 */
-
+//deque,list,vector
 template<typename T, class container = std::deque<T> >
 class MutantStack : public std::stack<T, container>
 {

@@ -161,7 +161,7 @@ int main()
     {
         try
         {
-            Span s = Span(10000000);
+            Span s = Span(1000000);
             for(unsigned int i = 0; i < s.getN();i++)
             {
                 s.addNumber(i);

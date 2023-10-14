@@ -1,5 +1,0 @@
-bilgiler.txt ve bunu sil!!!!!!!!!!!!!
-
-pushlarken yorum satırlarını sil
-
-valgrind kontrol

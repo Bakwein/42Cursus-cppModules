@@ -81,24 +81,28 @@ int main()
 			for (MutantStack<int>::iterator it = mutantStack.begin(); it != mutantStack.end(); ++it)
 			{
 				std::cout << *it << " ";
+				//*it = 5;
 			}
 
 			std::cout << "\nconst iterator : ";
 			for (MutantStack<int>::const_iterator cit = mutantStack.cbegin(); cit != mutantStack.cend(); ++cit)
 			{
 				std::cout << *cit << " ";
+				//*cit = 5; // const
 			}
 
 			std::cout << "\nreverse iterator : ";
 			for (MutantStack<int>::reverse_iterator it = mutantStack.rbegin(); it != mutantStack.rend(); ++it)
 			{
 				std::cout << *it << " ";
+				//*it = 5;
 			}
 
 			std::cout << "\nconst reverse iterator : ";
 			for (MutantStack<int>::const_reverse_iterator rit = mutantStack.crbegin(); rit != mutantStack.crend(); ++rit)
 			{
 				std::cout << *rit << " ";
+				//*rit = 5; // const
 			}
 			std::cout << std::endl;
 
