@@ -1,4 +1,4 @@
-NAME	= RPN
+NAME	= PmergeMe
 
 CC		= c++
 CFLAGS	= -Werror -Wextra -Wall -std=c++98
