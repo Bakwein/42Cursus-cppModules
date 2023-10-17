@@ -21,7 +21,7 @@ void BitcoinExchange::run()
 
 void BitcoinExchange::readCSV()
 {   
-    std::cout << PURPLE << "readCSV" << RESET << std::endl;
+    //std::cout << PURPLE << "readCSV" << RESET << std::endl;
     file_csv.open(CSV);
     if (!file_csv.is_open())
         throw FileOpenProblem();
@@ -45,9 +45,7 @@ void BitcoinExchange::readCSV()
         if (i == 0)
         {
             if(date != "date" || price != "exchange_rate")
-            {
                 throw FileSyntaxError();
-            }
             i++;
             continue;
         }
@@ -127,22 +125,16 @@ void BitcoinExchange::readCSV()
                     throw FileSyntaxError();
             }
         }
-        
-
         //price control
         float d_ = std::stof(price);
-        //bunda yok galiba
-        //if(d < 0 || d > 1000)
-        //    throw FileSyntaxError();
         map_csv.insert(std::pair<std::string, float>(date, d_));
-        //printMap(map_csv);
     }
 
 }
 
 void BitcoinExchange::output()
 {
-    std::cout << CYAN << "output" << RESET << std::endl;
+    //std::cout << CYAN << "output" << RESET << std::endl;
     file_input.open(this->getAv());
     if (!file_input.is_open())
         throw FileOpenProblem();
@@ -156,8 +148,6 @@ void BitcoinExchange::output()
     int i = 0;
     while(std::getline(file_input, line))
     {
-        //if(line.empty() || line.find(v) == std::string::npos)
-        //    throw FileSyntaxError();
         if(line.empty())
         {
             std::cout << "Error: line is empty" << std::endl;
@@ -190,6 +180,7 @@ void BitcoinExchange::output()
             continue;
         }
         //date kontrol
+        std::string temp_date = date;
         int count = std::count(date.begin(), date.end(), '-');
         if(count != 2)
         {
@@ -296,10 +287,9 @@ void BitcoinExchange::output()
                 }
             }
         }
-
         // PRICE CONTROL
-        
         float d_ = std::stof(price);
+        float temp_price = d_;
         if(d_ < 0)
         {
             std::cout << "Error: not a positive number." << std::endl;
@@ -311,13 +301,31 @@ void BitcoinExchange::output()
             continue;
         }
 
+        /*std::map<std::string, float>::iterator it2 = this->map_csv.find(date); // tam tarihi bulur
+        if(it2 != this->map_csv.end())
+        {
+            std::cout << date << " => " << d_ << " = " << it2->second * d_ << std::endl;
+            continue;
+        }*/
 
+        //date ->temp_date
+        //price -> temp_price
 
-
-        // if there is not a problem
-        std::cout << "solution " << std::endl;
-        //lowerbound kullan!!!!!!
-        
+        std::map<std::string,float>::iterator it = this->map_csv.lower_bound(temp_date); // lower bound kendisine ve altına bakar
+        if(it == this->map_csv.end())// hic dusuk bulamadi
+        {
+            --it;
+        }
+        else if(it == this->map_csv.begin() && temp_date < it->first) // baslangici gosterip ve baslangictaki de date'den buyukse
+        {
+            std::cout << "Error: no data for this date." << std::endl;
+            continue;
+        }
+        else if(date < it->first) // date is between two dates in this->_data.
+        {
+            --it;
+        }
+        std::cout << temp_date << " => " << temp_price << " = " << it->second * temp_price << std::endl;
     }
 
 }

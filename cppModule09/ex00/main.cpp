@@ -7,7 +7,7 @@ int main(int argc, char **argv)
     {
         if(argc != 2)
         {
-            throw BitcoinExchange::argcError    ();
+            throw BitcoinExchange::argcError();
         }
         else
         {
@@ -35,7 +35,7 @@ Programınız şu kurallara uymalıdır:
 • Programınız argüman olarak bir dosya almalıdır.
 • Bu dosyadaki her satır şu formatı kullanmalıdır: "tarih | değer".
 • Geçerli bir tarih her zaman şu formatta olacaktır: Yıl-Ay-Gün.
-• Geçerli bir değer, 0 ile 1000 arasında bir kayan nokta veya pozitif bir tam sayı olmalıdır.( yani template olarak alacağız)
+• Geçerli bir değer, 0 ile 1000 arasında bir kayan nokta veya pozitif bir tam sayı olmalıdır.
 Bunu doğrulamak için kodunuzda en az bir container kullanmalısınız
 egzersiz yapmak. Olası hataları uygun bir yaklaşımla ele almalısınız.
 hata mesajı.

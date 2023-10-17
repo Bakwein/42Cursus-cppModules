@@ -1,10 +1,3 @@
- headerdaki  yorum satırına alınmıs fonksiyonlari yaz
-
-ay yil gün aralik kontrolü
-
- csv'de 1000'e kadar kontrol olmalı mı olmamalı mı öğrenmek lazim
-
-
- ex00 solution kısmından devam
+ex00'da price kontrolü yapmıyoruz dimi????????
 
 ex01-ex02 dosyalar hazır - ex00'dan sonra devam!!!!!
