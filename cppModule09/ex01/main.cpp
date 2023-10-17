@@ -1,16 +1,26 @@
-
+#include "RPN.hpp"
+#include <iostream>
 
 int main(int argc, char **argv)
 {
-    if(argc != 2)
+    try
     {
-        std::cout << "Error: Wrong number of arguments" << std::endl;
-        return 1;
+        if(argc != 2)
+        {
+            throw RPN::argcError();
+        }
+        else
+        {
+            std::string inp = argv[1];
+            RPN r(inp);
+        }
     }
-    else
+    catch(const std::exception& e)
     {
-        //
+        std::cout << e.what() << '\n';
     }
+    
+    
     return 0;
 }
 
