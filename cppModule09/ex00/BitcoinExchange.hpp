@@ -29,20 +29,13 @@ class BitcoinExchange
     private:
         std::string av_;
     public:
-        
         std::map<std::string,float> map_csv;
-        std::map<std::string,float> map_input;
-        std::ifstream file_csv;
-        std::ifstream file_input;
-
-
+        
         void run();
-
         void readCSV();
         void output();
 
         BitcoinExchange();
-        //form
         BitcoinExchange(char *av);
         BitcoinExchange(const BitcoinExchange &rhs);
         ~BitcoinExchange();
@@ -88,10 +81,6 @@ class BitcoinExchange
                 return("Sign problem");
             }
         };
-
-        
-
-
 };
 
 

@@ -1,71 +1,72 @@
 #include "PmergeMe.hpp"
-#include <iostream>
 
-
-
-int main(int argc, char **argv)
+int	main( int argc, char **argv )
 {
-    try
-    {
-        if(argc <= 1)
-        {
-            std::cout << "Error : wrong argc" << std::endl;
-            return 0;
-        }
-        PmergeMe p(argc, argv);
-
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << e.what() << '\n';
-    }
-    
-    return 0;
-
+	try
+	{
+		if (argc <= 1)
+			throw (PmergeMe::exceptionInvalidArgument(\
+				"You must be enter ./PmergeMe 3 5 9 7 4"));
+		PmergeMe	pmerge(argc, argv);
+		pmerge.executePmergeSort();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "PmergeMe: Error: " << e.what() << std::endl;
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
 
-/*
+/**
+ * @brief PDF en to tr
+ * 
 Bu kısıtlamalara sahip bir program oluşturmalısınız:
-• Programın adı PmergeMe'dir.
-• Programınız argüman olarak pozitif tamsayı dizisini kullanabilmelidir.
-• Programınız pozitif tamsayıları sıralamak için birleştirme-ekleme sıralama algoritmasını kullanmalıdır
-sekans.
 
-Açıklığa kavuşturmak için evet, Ford-Johnson algoritmasını kullanmanız gerekir.
+• [OK] Programın adı PmergeMe'dir.
+• [OK] Programınız 'POZITIF' bir tamsayı dizisini bağımsız değişken olarak
+ kullanabilmelidir.
+• [OK] Programınız, 'POZITIF' tamsayı sırasını sıralamak için birleştirme-ekleme
+ sıralama algoritması kullanmalıdır.
+• [OK] Programın yürütülmesi sırasında bir hata oluşursa, standart çıktıda bir hata
+ mesajı görüntülenmelidir.
 
-Programın yürütülmesi sırasında bir hata meydana gelirse, bir hata mesajı görüntülenmelidir.
-standart çıktıda
-
-Kodunuzda en az iki farklı container kullanmalısınız.
-Bu alıştırmayı doğrulayın. Programınızın şu adreste işlemesi gerekir:
+Kodunuzda en az iki farklı kap kullanmalısınız.
+bu alıştırmayı onaylayın. Programınız şu adreste işleyebilmelidir:
 en az 3000 farklı tamsayı.
 
-Algoritmanızı her konteyner için uygulamanız önemle tavsiye edilir.
-ve böylece genel bir işlevi kullanmaktan kaçınmak için. -> template
+Algoritmanızı her kapsayıcı için uygulamanız şiddetle tavsiye edilir.
+ve böylece genel bir işlev kullanmaktan kaçınmak için.
 
-Satır satır görüntülemeniz gereken bilgilerle ilgili bazı ek yönergeleri burada bulabilirsiniz
-standart çıktıda:
-• İlk satırda açık bir metin ve ardından sıralanmamış pozitif ifadeyi görüntülemelisiniz
-tamsayı dizisi.
-• İkinci satırda açık bir metni ve ardından sıralanmış pozitifleri görüntülemelisiniz
-tamsayı dizisi.
-• Üçüncü satırda, kullanılan zamanı belirten açık bir metin görüntülemelisiniz.
-pozitif tamsayıyı sıralamak için kullanılan ilk kabı belirterek algoritmanız
-sekans. -> ilk container süresi
-• Son satırda, kullanılan zamanı belirten açık bir metin görüntülemelisiniz.
-pozitif tamsayıyı sıralamak için kullanılan ikinci kabı belirterek algoritmanız
-sekans. -> ikinci container süresi
+Burada, standart çıktıda satır satır görüntülemeniz gereken bilgilerle ilgili
+ bazı ek yönergeler verilmiştir.
+• [OK] İlk satırda açık bir metin ve ardından sıralanmamış 'POZITIF' tamsayı dizisini
+ görüntülemeniz gerekir.
+• [OK] Üçüncü satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ilk
+ kapsayıcıyı belirterek, algoritmanız tarafından kullanılan zamanı gösteren açık
+ bir metin göstermelisiniz.
+• [OK] Son satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ikinci
+ kapsayıcıyı belirterek, algoritmanız tarafından kullanılan zamanı gösteren açık
+ bir metin göstermelisiniz.
 
 Sıralamanızı gerçekleştirmek için kullanılan zamanın görüntülenme biçimi
-serbesttir, ancak seçilen hassasiyet
-kullanılan iki konteyner arasındaki fark.
+ ücretsizdir ancak seçilen kesinlik, kullanılan iki kap arasındaki farkı net
+ bir şekilde görmeye izin vermelidir.
 
-Bu örnekte zamanın belirtilmesi kasıtlı olarak gariptir.
-Elbette tüm işlemlerinizi gerçekleştirmek için kullanılan zamanı belirtmeniz gerekir.
-işlemleri, hem sıralama kısmı hem de veri yönetimi kısmı.
+$> ./PmergeMe 3 5 9 7 4 Before: 35974
+After: 34579
+Time to process a range of 5 elements with std::[..] : 0.00031 us
+Time to process a range of 5 elements with std::[..] : 0.00014 us $> ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+Before:  141 79 526 321 [...]
+After:   79 141 321 526 [...]
+Time to process a range of 3000 elements with std::[..] : 62.14389 us
+Time to process a range of 3000 elements with std::[..] : 69.27212 us
+$> ./PmergeMe "-1" "2"
+Error
+$>
 
-Uyarı: Önceki alıştırmalarda kullandığınız kap(lar)
-burada yasak.
-Yinelemelerle ilgili hataların yönetimi size bırakılmıştır.
-takdir yetkisi.
-*/
+Uyarı: Önceki alıştırmalarda kullandığınız kap(lar) burada yasak.
+
+Yinelemelerle ilgili hataların yönetimi sizin takdirinize bırakılmıştır.
+ * 
+ */

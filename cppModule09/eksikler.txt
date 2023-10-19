@@ -7,6 +7,8 @@ yıl > 2023 kontrolü gereksiz gibi istersen onu kaldır
 std::pair'e bak - notion
 merge algoritması + deque list fonksiyonlarına tekrar bak!
 
+ex02 ortodoks forma göre ayarlama
+
 
 kütüphane + valgrind kontrolü
 türkce yorum satirlarini sil

@@ -1,5 +1,6 @@
 #include "BitcoinExchange.hpp"
 #include <iostream>
+#include <fstream>
 
 
 BitcoinExchange::BitcoinExchange()
@@ -22,6 +23,7 @@ void BitcoinExchange::run()
 void BitcoinExchange::readCSV()
 {   
     //std::cout << PURPLE << "readCSV" << RESET << std::endl;
+    std::ifstream file_csv;
     file_csv.open(CSV);
     if (!file_csv.is_open())
         throw FileOpenProblem();
@@ -79,6 +81,7 @@ void BitcoinExchange::readCSV()
                 throw FileSyntaxError();
         }
         //span control
+        //stoi -> string to int
         int y = std::stoi(year);
         int m = std::stoi(month);
         int d = std::stoi(day);
@@ -127,6 +130,7 @@ void BitcoinExchange::readCSV()
         }
         //price control
         float d_ = std::stof(price);
+        //pair->first, pair->second
         map_csv.insert(std::pair<std::string, float>(date, d_));
     }
 
@@ -135,6 +139,7 @@ void BitcoinExchange::readCSV()
 void BitcoinExchange::output()
 {
     //std::cout << CYAN << "output" << RESET << std::endl;
+    std::ifstream file_input;
     file_input.open(this->getAv());
     if (!file_input.is_open())
         throw FileOpenProblem();
@@ -301,7 +306,7 @@ void BitcoinExchange::output()
             continue;
         }
 
-        /*std::map<std::string, float>::iterator it2 = this->map_csv.find(date); // tam tarihi bulur
+        /*std::map<std::string, float>::iterator it2 = this->map_csv.find(date); 
         if(it2 != this->map_csv.end())
         {
             std::cout << date << " => " << d_ << " = " << it2->second * d_ << std::endl;
@@ -311,17 +316,17 @@ void BitcoinExchange::output()
         //date ->temp_date
         //price -> temp_price
 
-        std::map<std::string,float>::iterator it = this->map_csv.lower_bound(temp_date); // lower bound kendisine ve altına bakar
-        if(it == this->map_csv.end())// hic dusuk bulamadi
+        std::map<std::string,float>::iterator it = this->map_csv.lower_bound(temp_date); // lower_bound returns an iterator pointing to the first element in the container whose key is not considered to go before k (i.e., either it is equivalent or goes after).
+        if(it == this->map_csv.end())//Date is after the last date in this->_data.
         {
             --it;
         }
-        else if(it == this->map_csv.begin() && temp_date < it->first) // baslangici gosterip ve baslangictaki de date'den buyukse
+        else if(it == this->map_csv.begin() && temp_date < it->first) // Date is before the earliest date in this->_data.
         {
             std::cout << "Error: no data for this date." << std::endl;
             continue;
         }
-        else if(date < it->first) // date is between two dates in this->_data.
+        else if(date < it->first) 
         {
             --it;
         }
@@ -330,19 +335,21 @@ void BitcoinExchange::output()
 
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &rhs)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &rhs) 
 {
     std::cout << "BitcoinExchange copy const." << std::endl;
     av_ = rhs.getAv();
+    map_csv = rhs.map_csv;
     *this = rhs;
 }
 
-BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& rhs)
+BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& rhs) 
 {
     std::cout << "BitcoinExchange operator=." << std::endl;
     if (this != &rhs)
     {
         this->av_ = rhs.getAv();
+        this->map_csv = rhs.map_csv;
     }
     return (*this);
 }
