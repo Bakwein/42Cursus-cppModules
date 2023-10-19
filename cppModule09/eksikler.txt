@@ -3,5 +3,9 @@ ex00'da price kontrolü yapmıyoruz dimi????????
 yıl > 2023 kontrolü gereksiz gibi istersen onu kaldır
 deque list fonksiyonlarına tekrar bak!
 
+ex02 define ile tanımlanana flagi degistir saniyelere bak
+ex00 sayfa fonk bak.
+ex01 cizerek anlat
+
 kütüphane + valgrind kontrolü
 türkce yorum satirlarini sil
