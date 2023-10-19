@@ -5,11 +5,22 @@
 
 int main(int argc, char **argv)
 {
-    if(argc <= 1)
+    try
     {
-        std::cout << "Error : wrong argc" << std::endl;
-        return 0;
+        if(argc <= 1)
+        {
+            std::cout << "Error : wrong argc" << std::endl;
+            return 0;
+        }
+        PmergeMe p(argc, argv);
+
     }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    
+    return 0;
 
 }
 

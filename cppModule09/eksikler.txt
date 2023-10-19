@@ -2,6 +2,10 @@ ex00'da price kontrolü yapmıyoruz dimi????????
 
 ex01-ex02 dosyalar hazır - ex00'dan sonra devam!!!!!
 
+SABAH BAKILACAKLAR
+yıl > 2023 kontrolü gereksiz gibi istersen onu kaldır
+std::pair'e bak - notion
+merge algoritması + deque list fonksiyonlarına tekrar bak!
 
 
 kütüphane + valgrind kontrolü
