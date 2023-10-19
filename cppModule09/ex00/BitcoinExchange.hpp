@@ -74,13 +74,7 @@ class BitcoinExchange
             }
         };
 
-        class signProblem : public std::exception
-        {
-            virtual const char* what() const throw()
-            {
-                return("Sign problem");
-            }
-        };
+        
 };
 
 
